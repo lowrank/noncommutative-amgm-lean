@@ -40,3 +40,4 @@ public import NoncommutativeAMGM.MatrixGramFactor
 public import NoncommutativeAMGM.BooleanMatrix
 public import NoncommutativeAMGM.BooleanVariance
 public import NoncommutativeAMGM.BooleanMatrixInput
+public import NoncommutativeAMGM.ChebyshevSquares

@@ -11,6 +11,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.1: coefficient extraction | Pending | |
 | Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
+| Lemma 3.2: scalar even and odd Chebyshev square identities and factor degrees | Proved | `ChebyshevSquares.lean` |
 | Lemma 3.2: Chebyshev matrix square factors | Pending | |
 | Real PSD Gram factors and rectangular contraction defect | Proved | `MatrixGramFactor.lean` |
 | Actual normalized input variance `B-B²` has a degree-one Boolean Gram factor | Proved | `BooleanMatrixInput.lean`: `booleanLinearMatrix_variance_factor` |
