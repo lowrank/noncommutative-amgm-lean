@@ -75,3 +75,8 @@ public import NoncommutativeAMGM.SineBound
 public import NoncommutativeAMGM.SimplexRecurrence
 public import NoncommutativeAMGM.SimplexVectors
 public import NoncommutativeAMGM.SimplexMatrices
+public import NoncommutativeAMGM.SimplexTransfer
+public import NoncommutativeAMGM.SimplexWords
+public import NoncommutativeAMGM.SimplexSymmetry
+public import NoncommutativeAMGM.SimplexEigenvalue
+public import NoncommutativeAMGM.SimplexCounterexample

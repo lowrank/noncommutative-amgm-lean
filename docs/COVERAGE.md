@@ -56,7 +56,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices with sum at most `nI` | Proved | `QuadraticBound.lean`: `withoutReplacementMean_quadratic_bounds`, `quadraticBoundTarget` |
 | Appendix A: concrete simplex vectors, tight frame, PSD matrices and exact mean normalization | Proved | `SimplexVectors.lean`, `SimplexMatrices.lean` |
 | Appendix A: scalar recurrence and integral-phase closed form | Proved | `SimplexRecurrence.lean`: `simplexRecurrence_integral_phase` |
-| Appendix A: distinct-word recurrence identification and averaged matrix eigenvalue | Pending | |
+| Appendix A: distinct-word recurrence identification and averaged matrix eigenvalue | Proved | `SimplexTransfer.lean`, `SimplexWords.lean`, `SimplexSymmetry.lean`, `SimplexEigenvalue.lean`: `simplexMean_angle_eigenvector` |
+| Concrete seven-matrix PSD counterexample, exact eigenvalue `-(49/48)³ < -1` | Proved | `SimplexCounterexample.lean`: `sevenSimplexMatrices_lower_bound_fails` |
 | Appendix B: exact barycentric product formula and normalized endpoint/interior weights | Proved | `ChebyshevWeights.lean`: `chebyshev_interpolation_weights` |
 | Ideal interpolation-weight total variation and endpoint saving | Proved | `ChebyshevWeights.lean`: `chebyshevWeight_totalVariation`, `chebyshevWeight_totalVariation_sub_endpoint` |
 | Integer endpoint slices are actual Boolean vertex evaluations | Proved | `ZeroSlice.lean`, `OneSlice.lean` |
@@ -102,13 +103,10 @@ These notes are proof-development observations, not refutations of the main theo
    the paper's full scalar formulation. The literal actual-degree endpoint variant of
    Lemma 3.10 and the all-length bound in (40) are now proved for the real polynomial
    families used in the completed matrix theorems.
-4. Complete Appendix A's identification of distinct-word coefficients with the proved
-   scalar recurrence, and the averaged matrix eigenvalue formula. The concrete simplex
-   vectors, tight-frame identity, PSD matrix family and exact sum `nI` are proved.
-   Theorem 3.5, Corollary 3.6, and Appendix B's exact interpolation weights and total
-   variation are proved. The harmonic and
-   slice-positivity statements are currently formalized for real scalar Boolean
-   polynomials, which suffices for the completed real matrix application.
+Appendix A's concrete PSD family, normalization, distinct-word recurrence and explicit
+eigenvalue formula are now proved, including an exact seven-matrix counterexample.
+The harmonic and slice-positivity statements are currently formalized for real scalar
+Boolean polynomials, which suffices for the completed real matrix application.
 
 `QuadraticBoundTarget` has the unconditional proof `quadraticBoundTarget`.
 `LowerBoundTarget` has the unconditional proof `lowerBoundTarget`.
