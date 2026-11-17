@@ -58,3 +58,6 @@ public import NoncommutativeAMGM.RootEndpoint
 public import NoncommutativeAMGM.ZeroSlice
 public import NoncommutativeAMGM.EndpointChebyshev
 public import NoncommutativeAMGM.StrengthenedLowerBound
+public import NoncommutativeAMGM.ActualCoefficientNorm
+public import NoncommutativeAMGM.CubicBound
+public import NoncommutativeAMGM.IteratedRemainderEnergy

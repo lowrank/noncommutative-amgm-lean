@@ -27,19 +27,21 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.4: uniform harmonic replacement preserving the slice second moment | Proved | `SliceSubstitution.lean`: `exists_uniform_harmonic_slice_replacement` |
 | Lemma 3.4: orthogonality and norm identity (28) | Proved for real Boolean polynomials | `HarmonicNorm.lean`, `SlicePositivity.lean` |
 | Lemma 3.4: harmonic coefficient polynomials, degree at most `d-k` | Proved | `SliceCoefficientPolynomial.lean`: `exists_harmonic_norm_polynomials` |
-| Theorem 3.5 / Corollary 3.6: cubic threshold | Pending | |
+| Theorem 3.5: sine-node threshold | Pending | |
+| Corollary 3.6: cubic threshold | Proved | `CubicBound.lean`: `withoutReplacementMean_cubic_bounds` |
 | Lemma 3.7: root-node quadrature coefficient formula | Proved | `Quadrature.lean`: `rootQuadrature_three_coefficients` |
 | Cosine-parity quadrature / root-node identification | Pending | |
 | Lemma 3.8: falling factorial factorization | Proved | `FallingFactorial.lean`: `slice_weight_factorization` |
 | Nonnegativity of the scalar weights in (28) | Proved | `FallingFactorial.lean`: `harmonic_weight_nonneg` |
 | Lemma 3.9: polynomial remainder coefficient norm, root-node form | Proved | `Parseval.lean`: `root_remainder_coefficientNormSq` |
-| Lemma 3.10: coefficient norm estimate | Pending | |
+| Lemma 3.10: literal actual-endpoint coefficient norm estimate | Proved for real coefficients | `ActualCoefficientNorm.lean`: `coefficient_norm_step_actual` |
 | Equation (38), invariant subspace, self-adjointness and weighted energy | Proved | `CoefficientOperator.lean`, `CoefficientEnergy.lean` |
 | Lemma 3.10 with a fixed ambient degree and padded endpoint deletion | Proved | `CoefficientTail.lean`: `coefficient_norm_step_padded` |
 | Even/odd recurrences, degree bounds, full norm split and endpoint deletion | Proved | `ParityCoefficients.lean` |
 | Equation (39), actual `Pⱼ = R(X²-1)ʲ`, before normalization | Proved | `DifferenceFamily.lean`: `differenceFamily_norm_step` |
 | Endpoint protection under the final polynomial remainder | Proved | `RemainderSafety.lean` |
 | Adjacent estimates in (40), for the actual normalized remainder energies | Proved | `RemainderEnergy.lean`: `remainderEnergy_step` |
+| All-length falling-factorial bound in (40), for actual remainder energies | Proved | `IteratedRemainderEnergy.lean`: `remainderEnergy_iterated` |
 | Section 3.6 positivity for the actual remainder energies, without norm hypotheses | Proved | `RemainderEnergy.lean`: `actual_remainder_expansion_nonneg` |
 | Equation (42), recurrence-ratio bound, alternating-sum closing step | Proved from explicit scalar estimates | `ScalarEstimate.lean`, `Alternating.lean` |
 | Equation (41), actual symmetric sums, and scalar closure from norm estimates | Proved | `SymmetricSums.lean`: `symmetricBeta_expansion_nonneg` |
@@ -89,10 +91,12 @@ These notes are proof-development observations, not refutations of the main theo
 2. Relate the root-grid rules to the paper's cosine parity quadratures and complete the
    supporting interpolation-weight statements. Theorem 1.2 is already proved directly
    on the root grids, including its exact coefficient and factorial normalizations.
-3. Write the all-length product bound in (40), and the exact actual-degree endpoint
-   variant of Lemma 3.10. The proved adjacent estimate and padded endpoint version
-   suffice for the completed Theorem 1.2.
-4. Complete the cubic-threshold statements and Appendices A and B. The harmonic and
+3. Complete the complex-coefficient versions of the coefficient estimates if needed for
+   the paper's full scalar formulation. The literal actual-degree endpoint variant of
+   Lemma 3.10 and the all-length bound in (40) are now proved for the real polynomial
+   families used in the completed matrix theorems.
+4. Complete Theorem 3.5's sine-node threshold and Appendices A and B. Corollary 3.6
+   (the cubic threshold) is already proved. The harmonic and
    slice-positivity statements are currently formalized for real scalar Boolean
    polynomials, which suffices for the completed real matrix application.
 
