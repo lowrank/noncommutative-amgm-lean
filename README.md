@@ -3,11 +3,15 @@
 Formalization project for Yimin Zhong,
 [arXiv:2610.04874v1](https://arxiv.org/abs/2610.04874v1), using **Lean 4.35.0**.
 
-**Status: Theorem 1.2 is proved. Theorem 1.1 and remaining supporting results are in progress.**
+**Status: Theorems 1.1 and 1.2 are proved. Remaining supporting results and appendices are in progress.**
 
 The full quadratic bound is `NoncommutativeAMGM.quadraticBoundTarget` in
 [QuadraticBound.lean](NoncommutativeAMGM/QuadraticBound.lean), with the original
-arbitrary-PSD and sum-at-most-`nI` assumptions.
+arbitrary-PSD and sum-at-most-`nI` assumptions. The strengthened lower bound is
+`NoncommutativeAMGM.lowerBoundTarget` in
+[StrengthenedLowerBound.lean](NoncommutativeAMGM/StrengthenedLowerBound.lean).
+Retaining the root-grid endpoint proves the stronger lower bound `−1+1/m`
+already under Theorem 1.2's quadratic threshold.
 The repository contains only completed declarations: no proof placeholders or custom axioms.
 An absence of placeholders does not establish coverage of the paper.
 See [the coverage ledger](docs/COVERAGE.md) for the exact boundary.

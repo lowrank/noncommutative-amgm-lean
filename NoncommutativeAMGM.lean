@@ -54,3 +54,7 @@ public import NoncommutativeAMGM.RootSliceExtraction
 public import NoncommutativeAMGM.ChebyshevCoefficient
 public import NoncommutativeAMGM.ProductScaling
 public import NoncommutativeAMGM.QuadraticBound
+public import NoncommutativeAMGM.RootEndpoint
+public import NoncommutativeAMGM.ZeroSlice
+public import NoncommutativeAMGM.EndpointChebyshev
+public import NoncommutativeAMGM.StrengthenedLowerBound

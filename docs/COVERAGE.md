@@ -6,7 +6,9 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | --- | --- | --- |
 | Equations (1), (5): ordered product sum and normalization | Compiled definitions | `Basic.lean` |
 | Arithmetic-mean case and constant-identity equality | Proved | `Basic.lean`, `MatrixOrder.lean` |
-| Theorem 1.1 / Lemma 2.3: strengthened lower bound | Pending | |
+| Theorem 1.1 / Lemma 2.3: strengthened lower bound | Proved by the endpoint-retaining root-grid argument | `StrengthenedLowerBound.lean`: `withoutReplacementMean_strengthened_lower`, `lowerBoundTarget` |
+| Stronger `-1+1/m` lower bound at the quadratic threshold | Proved | `StrengthenedLowerBound.lean`: `withoutReplacementMean_endpoint_lower` |
+| Quantitative zero-slice endpoint retained by the positive quadrature | Proved | `RootEndpoint.lean`, `ZeroSlice.lean`, `EndpointChebyshev.lean` |
 | Lemma 2.2: rounded Chebyshev nodes are distinct | Pending | |
 | Lemma 3.1: actual matrix coefficient identification with ordered product sum | Proved | `OrderedWords.lean`, `MatrixCoefficientExtraction.lean`, `ChebyshevCoefficient.lean` |
 | Exact root-to-Boolean-layer and factorial normalizations | Proved | `RootSliceExtraction.lean`, `ProductScaling.lean` |
@@ -81,8 +83,9 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Complete the rounded-node perturbation estimates for Theorem 1.1, including the
-   integer-slice positivity and normalized interpolation-weight argument.
+1. Complete the paper's rounded-node perturbation lemmas and normalized interpolation
+   weights as supporting results. Theorem 1.1 itself is already proved by retaining
+   the zero-slice endpoint in the positive root quadrature, with a stronger saving.
 2. Relate the root-grid rules to the paper's cosine parity quadratures and complete the
    supporting interpolation-weight statements. Theorem 1.2 is already proved directly
    on the root grids, including its exact coefficient and factorial normalizations.
@@ -94,4 +97,4 @@ These notes are proof-development observations, not refutations of the main theo
    polynomials, which suffices for the completed real matrix application.
 
 `QuadraticBoundTarget` has the unconditional proof `quadraticBoundTarget`.
-`LowerBoundTarget` remains an unproved target definition.
+`LowerBoundTarget` has the unconditional proof `lowerBoundTarget`.
