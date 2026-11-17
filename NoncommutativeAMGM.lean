@@ -80,3 +80,8 @@ public import NoncommutativeAMGM.SimplexWords
 public import NoncommutativeAMGM.SimplexSymmetry
 public import NoncommutativeAMGM.SimplexEigenvalue
 public import NoncommutativeAMGM.SimplexCounterexample
+public import NoncommutativeAMGM.InterpolationWeights
+public import NoncommutativeAMGM.RoundedCosineNodes
+public import NoncommutativeAMGM.NodePerturbation
+public import NoncommutativeAMGM.InverseSquareGaps
+public import NoncommutativeAMGM.RoundedWeights

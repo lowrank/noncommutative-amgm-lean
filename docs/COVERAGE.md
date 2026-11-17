@@ -11,6 +11,10 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Quantitative zero-slice endpoint retained by the positive quadrature | Proved | `RootEndpoint.lean`, `ZeroSlice.lean`, `EndpointChebyshev.lean` |
 | Lemma 2.2: rounded Chebyshev nodes are strictly increasing, with exact endpoints | Proved | `RoundedNodes.lean`: `roundedSliceNode_strictMono`, `roundedSliceNode_zero`, `roundedSliceNode_last` |
 | Quadratic cosine-node separation and nearest-integer error bounds | Proved | `CosineGap.lean`, `RoundedNodes.lean` |
+| General distinct-node interpolation weights, top-coefficient extraction and exact perturbation product | Proved | `InterpolationWeights.lean` |
+| Rounded cosine-node interval, endpoints, `1/n` error and injectivity | Proved | `RoundedCosineNodes.lean` |
+| Relative gap loss, exponential gap bound and rounded-weight upper bound (25) | Proved | `NodePerturbation.lean`, `RoundedWeights.lean`: `roundedWeight_abs_le` |
+| Two-sided finite inverse-square gap sum, bounded by `π²/3` | Proved | `InverseSquareGaps.lean` |
 | Lemma 3.1: actual matrix coefficient identification with ordered product sum | Proved | `OrderedWords.lean`, `MatrixCoefficientExtraction.lean`, `ChebyshevCoefficient.lean` |
 | Exact root-to-Boolean-layer and factorial normalizations | Proved | `RootSliceExtraction.lean`, `ProductScaling.lean` |
 | Difference of signed root averages extracts the top real-polynomial coefficient | Proved | `RootCoefficientExtraction.lean`: `rootPolynomialAverage_difference` |
@@ -92,17 +96,17 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Complete the paper's normalized interpolation weights and quantitative weight
-   perturbation estimates. Rounded-node separation, endpoints and rounding errors
-   are proved. Theorem 1.1 itself is already proved by retaining
-   the zero-slice endpoint in the positive root quadrature, with a stronger saving.
-2. Complete the rounded-weight perturbation estimates using the proved cosine parity
-   identities and Appendix B weights. Theorem 3.5's original sine-node hypothesis now
-   gives the matrix bounds directly, including endpoint and interior slice positivity.
-3. Complete the complex-coefficient versions of the coefficient estimates if needed for
+1. Complete Section 2.3's rounded-weight endpoint lower bound, Chebyshev rounding
+   error, and total-variation excess estimate. The general coefficient-extraction
+   weights, exact perturbation product, rounded cosine-node bounds, exponential gap
+   estimates and uniform weight upper bound (25) are proved. Theorem 1.1 itself is
+   already proved by retaining the zero-slice endpoint in the positive root quadrature,
+   with a stronger saving.
+2. Complete the complex-coefficient versions of the coefficient estimates if needed for
    the paper's full scalar formulation. The literal actual-degree endpoint variant of
    Lemma 3.10 and the all-length bound in (40) are now proved for the real polynomial
    families used in the completed matrix theorems.
+
 Appendix A's concrete PSD family, normalization, distinct-word recurrence and explicit
 eigenvalue formula are now proved, including an exact seven-matrix counterexample.
 The harmonic and slice-positivity statements are currently formalized for real scalar
