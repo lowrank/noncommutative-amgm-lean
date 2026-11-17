@@ -35,3 +35,4 @@ public import NoncommutativeAMGM.HarmonicNorm
 public import NoncommutativeAMGM.SlicePositivity
 public import NoncommutativeAMGM.SliceCoefficientPolynomial
 public import NoncommutativeAMGM.SliceQuadraturePositivity
+public import NoncommutativeAMGM.MatrixSlicePositivity

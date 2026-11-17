@@ -12,6 +12,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
 | Lemma 3.2: Boolean matrix sum of squares | Pending | |
+| Scalar square positivity extended to actual Boolean matrix Gram sums | Proved | `MatrixSlicePositivity.lean`: `rootSlice_gram_posSemidef` |
 | Theorem 3.3: slice functional positivity | Proved for real Boolean polynomials | `SlicePositivity.lean`: `sliceFunctional_square_nonneg` |
 | Lemma 3.4: complete falling-factorial harmonic expansion | Proved | `HarmonicExpansion.lean`: `boolean_harmonic_expansion` |
 | Lemma 3.4: uniform harmonic replacement preserving the slice second moment | Proved | `SliceSubstitution.lean`: `exists_uniform_harmonic_slice_replacement` |
@@ -80,9 +81,9 @@ These notes are proof-development observations, not refutations of the main theo
    The exact variant of Lemma 3.10 that deletes the polynomial's actual final coefficient,
    rather than its ambient-degree endpoint, also needs the degree reduction argument;
    the padded version already suffices for the proved family estimates.
-2. Extend the proved root-grid slice quadrature positivity to the required matrix
-   sum-of-squares application. The full real harmonic norm formula, coefficient degree
-   bounds and their combination with the scalar quadrature have been constructed.
+2. Supply the Chebyshev matrix Gram factors to the proved matrix-positivity extension.
+   The full real harmonic norm formula, coefficient degree bounds, scalar quadrature
+   positivity and its extension to actual matrix Gram sums have been constructed.
 3. Construct the matrix-valued Boolean sums of squares with their degree bounds.
 4. Relate the root quadratures to the cosine parity quadratures. Connect matrix leading
    coefficient extraction to the ordered product average, then prove Theorem 1.2.
