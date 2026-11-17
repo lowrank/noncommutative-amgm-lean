@@ -16,3 +16,4 @@ public import NoncommutativeAMGM.CoefficientEnergy
 public import NoncommutativeAMGM.SpectralLower
 public import NoncommutativeAMGM.CoefficientSpace
 public import NoncommutativeAMGM.CoefficientTail
+public import NoncommutativeAMGM.HarmonicCoefficients

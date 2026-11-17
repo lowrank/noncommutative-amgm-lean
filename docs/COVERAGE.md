@@ -31,6 +31,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Appendix C, Lemmas C.1–C.3 and harmonic proof | Pending | |
 | Lemma C.1, first identity `(Z-s)f` | Proved | `Boolean.lean`: `slice_total_sub_mul` |
 | Lemma C.1, mixed-moment identity | Proved | `MixedMoments.lean`: `sliceFunctional_mixedMonomial` |
+| Lemma C.2, cancellation from harmonic coefficient equations | Proved | `HarmonicCoefficients.lean`: `harmonicCoefficients_upperSum_zero` |
 | Motivational sampling probability bound | Corrected and certified | `Sampling.lean` |
 
 ## Source fidelity notes
