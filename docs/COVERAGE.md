@@ -13,7 +13,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
 | Lemma 3.2: Boolean matrix sum of squares | Pending | |
 | Theorem 3.3: slice functional positivity | Pending | |
-| Lemma 3.4: harmonic decomposition and norm identity | Pending | |
+| Lemma 3.4: complete falling-factorial harmonic expansion | Proved | `HarmonicExpansion.lean`: `boolean_harmonic_expansion` |
+| Lemma 3.4: slice-equivalent replacement and norm identity | Pending | |
 | Theorem 3.5 / Corollary 3.6: cubic threshold | Pending | |
 | Lemma 3.7: root-node quadrature coefficient formula | Proved | `Quadrature.lean`: `rootQuadrature_three_coefficients` |
 | Cosine-parity quadrature / root-node identification | Pending | |
@@ -37,7 +38,9 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
 | Appendix A: counterexample eigenvalue | Pending | |
 | Appendix B: Chebyshev interpolation weights | Pending | |
-| Appendix C, Lemmas C.1–C.3 and harmonic proof | Pending | |
+| Appendix C: actual up/down incidence operators, adjoints and harmonic splitting | Proved | `HomogeneousSpace.lean` |
+| Appendix C: raising is multiplication by `Z-r` | Proved | `HarmonicRaising.lean`: `homogeneousPolynomial_up` |
+| Appendix C: orthogonality and harmonic norm formula | Pending | |
 | Lemma C.1, first identity `(Z-s)f` | Proved | `Boolean.lean`: `slice_total_sub_mul` |
 | Lemma C.1, mixed-moment identity | Proved | `MixedMoments.lean`: `sliceFunctional_mixedMonomial` |
 | Lemma C.2, cancellation from harmonic coefficient equations | Proved | `HarmonicCoefficients.lean`: `harmonicCoefficients_upperSum_zero` |
@@ -73,8 +76,8 @@ These notes are proof-development observations, not refutations of the main theo
    The exact variant of Lemma 3.10 that deletes the polynomial's actual final coefficient,
    rather than its ambient-degree endpoint, also needs the degree reduction argument;
    the padded version already suffices for the proved family estimates.
-2. Construct Appendix C's harmonic decomposition, prove orthogonality and the norm
-   identity (28), and retain the coefficient degree bound in the slice parameter.
+2. Use the constructed harmonic expansion to prove the slice-equivalent replacement,
+   orthogonality and norm identity (28), and the coefficient degree bound in the slice parameter.
 3. Construct the matrix-valued Boolean sums of squares with their degree bounds.
 4. Relate the root quadratures to the cosine parity quadratures. Connect matrix leading
    coefficient extraction to the ordered product average, then prove Theorem 1.2.

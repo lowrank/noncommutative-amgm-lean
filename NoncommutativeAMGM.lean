@@ -24,3 +24,6 @@ public import NoncommutativeAMGM.RemainderEnergy
 public import NoncommutativeAMGM.RealRootQuadrature
 public import NoncommutativeAMGM.RootPositivity
 public import NoncommutativeAMGM.UnitCircleLift
+public import NoncommutativeAMGM.HomogeneousSpace
+public import NoncommutativeAMGM.HarmonicRaising
+public import NoncommutativeAMGM.HarmonicExpansion
