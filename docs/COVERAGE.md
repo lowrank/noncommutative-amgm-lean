@@ -68,8 +68,9 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Concrete seven-matrix PSD counterexample, exact eigenvalue `-(49/48)³ < -1` | Proved | `SimplexCounterexample.lean`: `sevenSimplexMatrices_lower_bound_fails` |
 | Appendix B: exact barycentric product formula and normalized endpoint/interior weights | Proved | `ChebyshevWeights.lean`: `chebyshev_interpolation_weights` |
 | Ideal interpolation-weight total variation and endpoint saving | Proved | `ChebyshevWeights.lean`: `chebyshevWeight_totalVariation`, `chebyshevWeight_totalVariation_sub_endpoint` |
+| Every integer slice is the actual uniform Boolean-layer average, with unrestricted square positivity | Proved | `IntegerSlices.lean`: `sliceFunctional_integer_average`, `sliceFunctional_integer_square_nonneg` |
 | Integer endpoint slices are actual Boolean vertex evaluations | Proved | `ZeroSlice.lean`, `OneSlice.lean` |
-| Appendix C: actual up/down incidence operators, adjoints and harmonic splitting | Proved | `HomogeneousSpace.lean` |
+| Appendix C: actual up/down incidence operators, adjoints and harmonic splitting | Proved for real and complex coefficient spaces | `HomogeneousSpace.lean`, `ScalarHomogeneousSpace.lean` |
 | Appendix C: raising is multiplication by `Z-r` | Proved | `HarmonicRaising.lean`: `homogeneousPolynomial_up` |
 | Appendix C: intersection-pattern cancellation and harmonic orthogonality | Proved | `HarmonicIntersection.lean`, `HarmonicNorm.lean` |
 | Appendix C: alternating coefficient equals the falling-factorial ratio | Proved | `SliceDifference.lean`: `powerset_harmonic_weight` |
@@ -104,15 +105,20 @@ Section 2.3's complete rounded-weight estimates, including the endpoint lower bo
 Chebyshev rounding error, variation excess and final endpoint saving, are proved.
 Theorems 1.1, 1.2, 3.5 and Corollary 3.6 have unconditional real-matrix proofs.
 
-The remaining paper-wide coverage audit must resolve:
+The general integer-slice interpretation is now proved as an equality with the uniform
+average over its actual Boolean vertices. Appendix C's incidence adjoint and orthogonal
+splitting are also proved over arbitrary `RCLike` fields, including `ℂ`.
 
-1. The probabilistic interpretation of every integer slice as a uniform average over
-   Boolean vertices of that weight. The functional moment rule and the two endpoint
-   vertex interpretations are proved; general integer-layer evaluation is not yet identified.
-2. Complete the complex-coefficient versions of the coefficient estimates if needed for
-   the paper's full scalar formulation. The literal actual-degree endpoint variant of
-   Lemma 3.10 and the all-length bound in (40) are now proved for the real polynomial
-   families used in the completed matrix theorems.
+The paper defines `ℙ_m` to consist of real-valued polynomials at the start of Section 2.
+The coefficient norm, harmonic formula and slice-positivity estimates are formalized for
+that real coefficient class. Complex roots and complex evaluation are used explicitly in
+the unit-circle quadrature. The displayed complex homogeneous inner-product structure
+in Appendix C is covered by `ScalarHomogeneousSpace.lean`; no complex coefficient
+assumption is being supplied to a real theorem.
+
+The final paper-wide audit is still in progress. In particular, the normalized general
+interpolation rule must be identified explicitly with the actual slice and matrix
+coefficient-extraction maps, beyond the completed root-grid specialization.
 
 Appendix A's concrete PSD family, normalization, distinct-word recurrence and explicit
 eigenvalue formula are now proved, including an exact seven-matrix counterexample.

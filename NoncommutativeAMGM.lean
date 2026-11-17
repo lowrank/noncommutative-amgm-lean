@@ -91,3 +91,5 @@ public import NoncommutativeAMGM.ArccosMargin
 public import NoncommutativeAMGM.CosineNodeMargin
 public import NoncommutativeAMGM.ChebyshevRounding
 public import NoncommutativeAMGM.RoundedVariation
+public import NoncommutativeAMGM.IntegerSlices
+public import NoncommutativeAMGM.ScalarHomogeneousSpace
