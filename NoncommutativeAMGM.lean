@@ -85,3 +85,5 @@ public import NoncommutativeAMGM.RoundedCosineNodes
 public import NoncommutativeAMGM.NodePerturbation
 public import NoncommutativeAMGM.InverseSquareGaps
 public import NoncommutativeAMGM.RoundedWeights
+public import NoncommutativeAMGM.RoundedEndpoint
+public import NoncommutativeAMGM.RoundedWeightSigns

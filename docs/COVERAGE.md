@@ -15,6 +15,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Rounded cosine-node interval, endpoints, `1/n` error and injectivity | Proved | `RoundedCosineNodes.lean` |
 | Relative gap loss, exponential gap bound and rounded-weight upper bound (25) | Proved | `NodePerturbation.lean`, `RoundedWeights.lean`: `roundedWeight_abs_le` |
 | Two-sided finite inverse-square gap sum, bounded by `π²/3` | Proved | `InverseSquareGaps.lean` |
+| Rounded endpoint mass, including `a₀ ≥ exp(-π²m²/(12n))/(2m) > 2/(5m)` | Proved | `RoundedEndpoint.lean`: `roundedWeight_zero_lower`, `roundedWeight_zero_gt` |
+| Alternating signs, exact variation identity and reduction to Chebyshev rounding errors | Proved | `RoundedWeightSigns.lean`: `roundedWeight_sign`, `roundedWeight_variation_le` |
 | Lemma 3.1: actual matrix coefficient identification with ordered product sum | Proved | `OrderedWords.lean`, `MatrixCoefficientExtraction.lean`, `ChebyshevCoefficient.lean` |
 | Exact root-to-Boolean-layer and factorial normalizations | Proved | `RootSliceExtraction.lean`, `ProductScaling.lean` |
 | Difference of signed root averages extracts the top real-polynomial coefficient | Proved | `RootCoefficientExtraction.lean`: `rootPolynomialAverage_difference` |
@@ -96,10 +98,10 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Complete Section 2.3's rounded-weight endpoint lower bound, Chebyshev rounding
-   error, and total-variation excess estimate. The general coefficient-extraction
+1. Complete Section 2.3's Chebyshev rounding-error and total-variation excess estimates. The general coefficient-extraction
    weights, exact perturbation product, rounded cosine-node bounds, exponential gap
-   estimates and uniform weight upper bound (25) are proved. Theorem 1.1 itself is
+   estimates, uniform weight upper bound (25), strict endpoint bound `a₀ > 2/(5m)`,
+   alternating signs and exact variation-error reduction are proved. Theorem 1.1 itself is
    already proved by retaining the zero-slice endpoint in the positive root quadrature,
    with a stronger saving.
 2. Complete the complex-coefficient versions of the coefficient estimates if needed for
