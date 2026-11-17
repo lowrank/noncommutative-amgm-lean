@@ -29,3 +29,9 @@ public import NoncommutativeAMGM.HarmonicRaising
 public import NoncommutativeAMGM.HarmonicExpansion
 public import NoncommutativeAMGM.BooleanDegree
 public import NoncommutativeAMGM.SliceSubstitution
+public import NoncommutativeAMGM.HarmonicIntersection
+public import NoncommutativeAMGM.SliceDifference
+public import NoncommutativeAMGM.HarmonicNorm
+public import NoncommutativeAMGM.SlicePositivity
+public import NoncommutativeAMGM.SliceCoefficientPolynomial
+public import NoncommutativeAMGM.SliceQuadraturePositivity

@@ -12,10 +12,11 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
 | Lemma 3.2: Boolean matrix sum of squares | Pending | |
-| Theorem 3.3: slice functional positivity | Pending | |
+| Theorem 3.3: slice functional positivity | Proved for real Boolean polynomials | `SlicePositivity.lean`: `sliceFunctional_square_nonneg` |
 | Lemma 3.4: complete falling-factorial harmonic expansion | Proved | `HarmonicExpansion.lean`: `boolean_harmonic_expansion` |
 | Lemma 3.4: uniform harmonic replacement preserving the slice second moment | Proved | `SliceSubstitution.lean`: `exists_uniform_harmonic_slice_replacement` |
-| Lemma 3.4: orthogonality and norm identity | Pending | |
+| Lemma 3.4: orthogonality and norm identity (28) | Proved for real Boolean polynomials | `HarmonicNorm.lean`, `SlicePositivity.lean` |
+| Lemma 3.4: harmonic coefficient polynomials, degree at most `d-k` | Proved | `SliceCoefficientPolynomial.lean`: `exists_harmonic_norm_polynomials` |
 | Theorem 3.5 / Corollary 3.6: cubic threshold | Pending | |
 | Lemma 3.7: root-node quadrature coefficient formula | Proved | `Quadrature.lean`: `rootQuadrature_three_coefficients` |
 | Cosine-parity quadrature / root-node identification | Pending | |
@@ -36,12 +37,14 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Weighted root-node positivity under the quadratic threshold | Proved | `RootPositivity.lean`: `root_weighted_square_nonneg` |
 | Real polynomial lift to the unit circle, with degree and evaluation identities | Proved | `UnitCircleLift.lean` |
 | Scalar weighted real-polynomial quadrature underlying (29), in root parametrization | Proved | `UnitCircleLift.lean`: `real_polynomial_quadrature_nonneg` |
+| Root-grid slice quadrature positivity for actual Boolean squares, quadratic threshold | Proved | `SliceQuadraturePositivity.lean`: `rootSliceFunctional_square_nonneg` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
 | Appendix A: counterexample eigenvalue | Pending | |
 | Appendix B: Chebyshev interpolation weights | Pending | |
 | Appendix C: actual up/down incidence operators, adjoints and harmonic splitting | Proved | `HomogeneousSpace.lean` |
 | Appendix C: raising is multiplication by `Z-r` | Proved | `HarmonicRaising.lean`: `homogeneousPolynomial_up` |
-| Appendix C: orthogonality and harmonic norm formula | Pending | |
+| Appendix C: intersection-pattern cancellation and harmonic orthogonality | Proved | `HarmonicIntersection.lean`, `HarmonicNorm.lean` |
+| Appendix C: alternating coefficient equals the falling-factorial ratio | Proved | `SliceDifference.lean`: `powerset_harmonic_weight` |
 | Lemma C.1, first identity `(Z-s)f` | Proved | `Boolean.lean`: `slice_total_sub_mul` |
 | Lemma C.1, mixed-moment identity | Proved | `MixedMoments.lean`: `sliceFunctional_mixedMonomial` |
 | Lemma C.2, cancellation from harmonic coefficient equations | Proved | `HarmonicCoefficients.lean`: `harmonicCoefficients_upperSum_zero` |
@@ -77,8 +80,9 @@ These notes are proof-development observations, not refutations of the main theo
    The exact variant of Lemma 3.10 that deletes the polynomial's actual final coefficient,
    rather than its ambient-degree endpoint, also needs the degree reduction argument;
    the padded version already suffices for the proved family estimates.
-2. Prove orthogonality and norm identity (28), and the coefficient degree bound in the slice
-   parameter. The harmonic expansion and a uniform slice-equivalent replacement are constructed.
+2. Extend the proved root-grid slice quadrature positivity to the required matrix
+   sum-of-squares application. The full real harmonic norm formula, coefficient degree
+   bounds and their combination with the scalar quadrature have been constructed.
 3. Construct the matrix-valued Boolean sums of squares with their degree bounds.
 4. Relate the root quadratures to the cosine parity quadratures. Connect matrix leading
    coefficient extraction to the ordered product average, then prove Theorem 1.2.
