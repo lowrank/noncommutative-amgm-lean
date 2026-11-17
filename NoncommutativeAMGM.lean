@@ -90,3 +90,4 @@ public import NoncommutativeAMGM.RoundedWeightSigns
 public import NoncommutativeAMGM.ArccosMargin
 public import NoncommutativeAMGM.CosineNodeMargin
 public import NoncommutativeAMGM.ChebyshevRounding
+public import NoncommutativeAMGM.RoundedVariation

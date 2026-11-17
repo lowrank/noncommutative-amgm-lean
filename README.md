@@ -3,7 +3,7 @@
 Formalization project for Yimin Zhong,
 [arXiv:2610.04874v1](https://arxiv.org/abs/2610.04874v1), using **Lean 4.35.0**.
 
-**Status: Theorems 1.1 and 1.2 are proved. Remaining supporting results and appendices are in progress.**
+**Status: the main theorems, rounded-weight estimates, and real-coefficient appendices are proved. The final paper-wide coverage audit is in progress.**
 
 The full quadratic bound is `NoncommutativeAMGM.quadraticBoundTarget` in
 [QuadraticBound.lean](NoncommutativeAMGM/QuadraticBound.lean), with the original
