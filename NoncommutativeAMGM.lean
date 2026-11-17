@@ -5,3 +5,5 @@ public import NoncommutativeAMGM.MatrixOrder
 public import NoncommutativeAMGM.FallingFactorial
 public import NoncommutativeAMGM.ScalarEstimate
 public import NoncommutativeAMGM.Boolean
+public import NoncommutativeAMGM.Extraction
+public import NoncommutativeAMGM.Quadrature

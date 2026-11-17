@@ -9,12 +9,14 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Theorem 1.1 / Lemma 2.3: strengthened lower bound | Pending | |
 | Lemma 2.2: rounded Chebyshev nodes are distinct | Pending | |
 | Lemma 3.1: coefficient extraction | Pending | |
+| Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
 | Lemma 3.2: Boolean matrix sum of squares | Pending | |
 | Theorem 3.3: slice functional positivity | Pending | |
 | Lemma 3.4: harmonic decomposition and norm identity | Pending | |
 | Theorem 3.5 / Corollary 3.6: cubic threshold | Pending | |
-| Lemma 3.7: parity quadrature coefficient formula | Pending | |
+| Lemma 3.7: root-node quadrature coefficient formula | Proved | `Quadrature.lean`: `rootQuadrature_three_coefficients` |
+| Cosine-parity quadrature / root-node identification | Pending | |
 | Lemma 3.8: falling factorial factorization | Proved | `FallingFactorial.lean`: `slice_weight_factorization` |
 | Nonnegativity of the scalar weights in (28) | Proved | `FallingFactorial.lean`: `harmonic_weight_nonneg` |
 | Lemma 3.9: polynomial remainder norm | Pending | |
