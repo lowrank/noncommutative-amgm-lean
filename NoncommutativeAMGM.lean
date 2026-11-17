@@ -41,3 +41,8 @@ public import NoncommutativeAMGM.BooleanMatrix
 public import NoncommutativeAMGM.BooleanVariance
 public import NoncommutativeAMGM.BooleanMatrixInput
 public import NoncommutativeAMGM.ChebyshevSquares
+public import NoncommutativeAMGM.BooleanMatrixPolynomial
+public import NoncommutativeAMGM.ChebyshevEvenGram
+public import NoncommutativeAMGM.BooleanInputGram
+public import NoncommutativeAMGM.ChebyshevOddGram
+public import NoncommutativeAMGM.ChebyshevQuadrature

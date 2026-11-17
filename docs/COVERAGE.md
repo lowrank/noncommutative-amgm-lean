@@ -12,7 +12,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
 | Lemma 3.2: scalar even and odd Chebyshev square identities and factor degrees | Proved | `ChebyshevSquares.lean` |
-| Lemma 3.2: Chebyshev matrix square factors | Pending | |
+| Lemma 3.2: actual Chebyshev matrix Gram factors for both signs and parities | Proved | `ChebyshevEvenGram.lean`, `ChebyshevOddGram.lean` |
+| Lemma 3.2: degree bounds for matrix polynomial evaluation and input/complement factors | Proved | `BooleanMatrixPolynomial.lean`, `BooleanInputGram.lean` |
 | Real PSD Gram factors and rectangular contraction defect | Proved | `MatrixGramFactor.lean` |
 | Actual normalized input variance `B-B²` has a degree-one Boolean Gram factor | Proved | `BooleanMatrixInput.lean`: `booleanLinearMatrix_variance_factor` |
 | Scalar square positivity extended to actual Boolean matrix Gram sums | Proved | `MatrixSlicePositivity.lean`: `rootSlice_gram_posSemidef` |
@@ -42,6 +43,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Real polynomial lift to the unit circle, with degree and evaluation identities | Proved | `UnitCircleLift.lean` |
 | Scalar weighted real-polynomial quadrature underlying (29), in root parametrization | Proved | `UnitCircleLift.lean`: `real_polynomial_quadrature_nonneg` |
 | Root-grid slice quadrature positivity for actual Boolean squares, quadratic threshold | Proved | `SliceQuadraturePositivity.lean`: `rootSliceFunctional_square_nonneg` |
+| Quadratic-threshold PSD root quadratures of both signed Chebyshev matrix expressions | Proved | `ChebyshevQuadrature.lean`: `rootSlice_chebyshev_posSemidef` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
 | Appendix A: counterexample eigenvalue | Pending | |
 | Appendix B: Chebyshev interpolation weights | Pending | |
@@ -87,9 +89,9 @@ These notes are proof-development observations, not refutations of the main theo
 2. Supply the Chebyshev matrix Gram factors to the proved matrix-positivity extension.
    The full real harmonic norm formula, coefficient degree bounds, scalar quadrature
    positivity and its extension to actual matrix Gram sums have been constructed.
-3. Construct the Chebyshev matrix-valued Boolean sums of squares with their degree bounds.
-   The input compression and its degree-one variance factor are already constructed
-   for arbitrary PSD matrices whose sum is bounded by the identity.
+3. Identify the ordered-product matrix extracted by the two root quadratures.
+   Both signed Chebyshev matrix expressions already have PSD quadratures under
+   the quadratic threshold, with constructed Gram factors.
 4. Relate the root quadratures to the cosine parity quadratures. Connect matrix leading
    coefficient extraction to the ordered product average, then prove Theorem 1.2.
 5. Complete the rounded-node perturbation estimates for Theorem 1.1, the cubic-threshold
