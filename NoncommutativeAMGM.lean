@@ -72,3 +72,6 @@ public import NoncommutativeAMGM.SineNodeBounds
 public import NoncommutativeAMGM.ChebyshevImage
 public import NoncommutativeAMGM.CosineSlicePositivity
 public import NoncommutativeAMGM.SineBound
+public import NoncommutativeAMGM.SimplexRecurrence
+public import NoncommutativeAMGM.SimplexVectors
+public import NoncommutativeAMGM.SimplexMatrices
