@@ -28,10 +28,11 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.4: uniform harmonic replacement preserving the slice second moment | Proved | `SliceSubstitution.lean`: `exists_uniform_harmonic_slice_replacement` |
 | Lemma 3.4: orthogonality and norm identity (28) | Proved for real Boolean polynomials | `HarmonicNorm.lean`, `SlicePositivity.lean` |
 | Lemma 3.4: harmonic coefficient polynomials, degree at most `d-k` | Proved | `SliceCoefficientPolynomial.lean`: `exists_harmonic_norm_polynomials` |
-| Theorem 3.5: sine-node threshold | Pending | |
+| Theorem 3.5: original sine-node threshold, without an added quadratic hypothesis | Proved | `SineBound.lean`: `withoutReplacementMean_sine_bounds` |
+| Interior sine-node interval and positivity of both actual cosine parity functionals | Proved | `SineNodeBounds.lean`, `CosineSlicePositivity.lean` |
 | Corollary 3.6: cubic threshold | Proved | `CubicBound.lean`: `withoutReplacementMean_cubic_bounds` |
 | Lemma 3.7: root-node quadrature coefficient formula | Proved | `Quadrature.lean`: `rootQuadrature_three_coefficients` |
-| Cosine-parity quadrature / root-node identification | Pending | |
+| Cosine-parity quadrature / root-node identification, with exact endpoint multiplicities | Proved | `CosineRootNodes.lean`, `CosineGridFold.lean`, `CosineQuadrature.lean` |
 | Lemma 3.8: falling factorial factorization | Proved | `FallingFactorial.lean`: `slice_weight_factorization` |
 | Nonnegativity of the scalar weights in (28) | Proved | `FallingFactorial.lean`: `harmonic_weight_nonneg` |
 | Lemma 3.9: polynomial remainder coefficient norm, root-node form | Proved | `Parseval.lean`: `root_remainder_coefficientNormSq` |
@@ -54,7 +55,9 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Quadratic-threshold PSD root quadratures of both signed Chebyshev matrix expressions | Proved | `ChebyshevQuadrature.lean`: `rootSlice_chebyshev_posSemidef` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices with sum at most `nI` | Proved | `QuadraticBound.lean`: `withoutReplacementMean_quadratic_bounds`, `quadraticBoundTarget` |
 | Appendix A: counterexample eigenvalue | Pending | |
-| Appendix B: Chebyshev interpolation weights | Pending | |
+| Appendix B: exact barycentric product formula and normalized endpoint/interior weights | Proved | `ChebyshevWeights.lean`: `chebyshev_interpolation_weights` |
+| Ideal interpolation-weight total variation and endpoint saving | Proved | `ChebyshevWeights.lean`: `chebyshevWeight_totalVariation`, `chebyshevWeight_totalVariation_sub_endpoint` |
+| Integer endpoint slices are actual Boolean vertex evaluations | Proved | `ZeroSlice.lean`, `OneSlice.lean` |
 | Appendix C: actual up/down incidence operators, adjoints and harmonic splitting | Proved | `HomogeneousSpace.lean` |
 | Appendix C: raising is multiplication by `Z-r` | Proved | `HarmonicRaising.lean`: `homogeneousPolynomial_up` |
 | Appendix C: intersection-pattern cancellation and harmonic orthogonality | Proved | `HarmonicIntersection.lean`, `HarmonicNorm.lean` |
@@ -90,15 +93,16 @@ These notes are proof-development observations, not refutations of the main theo
    perturbation estimates. Rounded-node separation, endpoints and rounding errors
    are proved. Theorem 1.1 itself is already proved by retaining
    the zero-slice endpoint in the positive root quadrature, with a stronger saving.
-2. Relate the root-grid rules to the paper's cosine parity quadratures and complete the
-   supporting interpolation-weight statements. Theorem 1.2 is already proved directly
-   on the root grids, including its exact coefficient and factorial normalizations.
+2. Complete the rounded-weight perturbation estimates using the proved cosine parity
+   identities and Appendix B weights. Theorem 3.5's original sine-node hypothesis now
+   gives the matrix bounds directly, including endpoint and interior slice positivity.
 3. Complete the complex-coefficient versions of the coefficient estimates if needed for
    the paper's full scalar formulation. The literal actual-degree endpoint variant of
    Lemma 3.10 and the all-length bound in (40) are now proved for the real polynomial
    families used in the completed matrix theorems.
-4. Complete Theorem 3.5's sine-node threshold and Appendices A and B. Corollary 3.6
-   (the cubic threshold) is already proved. The harmonic and
+4. Complete Appendix A's concrete simplex matrix construction and eigenvalue formula.
+   Theorem 3.5, Corollary 3.6, and Appendix B's exact interpolation weights and total
+   variation are proved. The harmonic and
    slice-positivity statements are currently formalized for real scalar Boolean
    polynomials, which suffices for the completed real matrix application.
 

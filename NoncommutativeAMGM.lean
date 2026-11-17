@@ -63,3 +63,12 @@ public import NoncommutativeAMGM.CubicBound
 public import NoncommutativeAMGM.IteratedRemainderEnergy
 public import NoncommutativeAMGM.CosineGap
 public import NoncommutativeAMGM.RoundedNodes
+public import NoncommutativeAMGM.CosineRootNodes
+public import NoncommutativeAMGM.CosineGridFold
+public import NoncommutativeAMGM.CosineQuadrature
+public import NoncommutativeAMGM.ChebyshevWeights
+public import NoncommutativeAMGM.OneSlice
+public import NoncommutativeAMGM.SineNodeBounds
+public import NoncommutativeAMGM.ChebyshevImage
+public import NoncommutativeAMGM.CosineSlicePositivity
+public import NoncommutativeAMGM.SineBound
