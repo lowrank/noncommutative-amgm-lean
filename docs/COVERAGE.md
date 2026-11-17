@@ -11,7 +11,9 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.1: coefficient extraction | Pending | |
 | Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
-| Lemma 3.2: Boolean matrix sum of squares | Pending | |
+| Lemma 3.2: Chebyshev matrix square factors | Pending | |
+| Real PSD Gram factors and rectangular contraction defect | Proved | `MatrixGramFactor.lean` |
+| Actual normalized input variance `B-B²` has a degree-one Boolean Gram factor | Proved | `BooleanMatrixInput.lean`: `booleanLinearMatrix_variance_factor` |
 | Scalar square positivity extended to actual Boolean matrix Gram sums | Proved | `MatrixSlicePositivity.lean`: `rootSlice_gram_posSemidef` |
 | Theorem 3.3: slice functional positivity | Proved for real Boolean polynomials | `SlicePositivity.lean`: `sliceFunctional_square_nonneg` |
 | Lemma 3.4: complete falling-factorial harmonic expansion | Proved | `HarmonicExpansion.lean`: `boolean_harmonic_expansion` |
@@ -84,7 +86,9 @@ These notes are proof-development observations, not refutations of the main theo
 2. Supply the Chebyshev matrix Gram factors to the proved matrix-positivity extension.
    The full real harmonic norm formula, coefficient degree bounds, scalar quadrature
    positivity and its extension to actual matrix Gram sums have been constructed.
-3. Construct the matrix-valued Boolean sums of squares with their degree bounds.
+3. Construct the Chebyshev matrix-valued Boolean sums of squares with their degree bounds.
+   The input compression and its degree-one variance factor are already constructed
+   for arbitrary PSD matrices whose sum is bounded by the identity.
 4. Relate the root quadratures to the cosine parity quadratures. Connect matrix leading
    coefficient extraction to the ordered product average, then prove Theorem 1.2.
 5. Complete the rounded-node perturbation estimates for Theorem 1.1, the cubic-threshold

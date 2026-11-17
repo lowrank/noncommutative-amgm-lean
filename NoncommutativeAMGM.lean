@@ -36,3 +36,7 @@ public import NoncommutativeAMGM.SlicePositivity
 public import NoncommutativeAMGM.SliceCoefficientPolynomial
 public import NoncommutativeAMGM.SliceQuadraturePositivity
 public import NoncommutativeAMGM.MatrixSlicePositivity
+public import NoncommutativeAMGM.MatrixGramFactor
+public import NoncommutativeAMGM.BooleanMatrix
+public import NoncommutativeAMGM.BooleanVariance
+public import NoncommutativeAMGM.BooleanMatrixInput
