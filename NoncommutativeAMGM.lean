@@ -48,3 +48,9 @@ public import NoncommutativeAMGM.ChebyshevOddGram
 public import NoncommutativeAMGM.ChebyshevQuadrature
 public import NoncommutativeAMGM.ChebyshevRootAverage
 public import NoncommutativeAMGM.RootCoefficientExtraction
+public import NoncommutativeAMGM.OrderedWords
+public import NoncommutativeAMGM.MatrixCoefficientExtraction
+public import NoncommutativeAMGM.RootSliceExtraction
+public import NoncommutativeAMGM.ChebyshevCoefficient
+public import NoncommutativeAMGM.ProductScaling
+public import NoncommutativeAMGM.QuadraticBound

@@ -8,7 +8,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Arithmetic-mean case and constant-identity equality | Proved | `Basic.lean`, `MatrixOrder.lean` |
 | Theorem 1.1 / Lemma 2.3: strengthened lower bound | Pending | |
 | Lemma 2.2: rounded Chebyshev nodes are distinct | Pending | |
-| Lemma 3.1: matrix coefficient identification with ordered product sum | Pending | |
+| Lemma 3.1: actual matrix coefficient identification with ordered product sum | Proved | `OrderedWords.lean`, `MatrixCoefficientExtraction.lean`, `ChebyshevCoefficient.lean` |
+| Exact root-to-Boolean-layer and factorial normalizations | Proved | `RootSliceExtraction.lean`, `ProductScaling.lean` |
 | Difference of signed root averages extracts the top real-polynomial coefficient | Proved | `RootCoefficientExtraction.lean`: `rootPolynomialAverage_difference` |
 | Exact Chebyshev moments on the signed root grids | Proved | `ChebyshevRootAverage.lean`: `rootRealAverage_chebyshev` |
 | Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
@@ -46,7 +47,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Scalar weighted real-polynomial quadrature underlying (29), in root parametrization | Proved | `UnitCircleLift.lean`: `real_polynomial_quadrature_nonneg` |
 | Root-grid slice quadrature positivity for actual Boolean squares, quadratic threshold | Proved | `SliceQuadraturePositivity.lean`: `rootSliceFunctional_square_nonneg` |
 | Quadratic-threshold PSD root quadratures of both signed Chebyshev matrix expressions | Proved | `ChebyshevQuadrature.lean`: `rootSlice_chebyshev_posSemidef` |
-| Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
+| Theorem 1.2: quadratic threshold, arbitrary PSD matrices with sum at most `nI` | Proved | `QuadraticBound.lean`: `withoutReplacementMean_quadratic_bounds`, `quadraticBoundTarget` |
 | Appendix A: counterexample eigenvalue | Pending | |
 | Appendix B: Chebyshev interpolation weights | Pending | |
 | Appendix C: actual up/down incidence operators, adjoints and harmonic splitting | Proved | `HomogeneousSpace.lean` |
@@ -80,21 +81,17 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Identify the ordered-product matrix extracted by the two root quadratures, with the
-   exact Chebyshev leading coefficient and falling-factorial normalization, and close
-   Theorem 1.2. The signed quadratures already extract the top coefficient of actual
-   real polynomials, and both signed Chebyshev matrix expressions have PSD quadratures
-   at the quadratic threshold with constructed Gram factors.
+1. Complete the rounded-node perturbation estimates for Theorem 1.1, including the
+   integer-slice positivity and normalized interpolation-weight argument.
 2. Relate the root-grid rules to the paper's cosine parity quadratures and complete the
-   supporting interpolation-weight statements. A direct root-grid route can be used
-   for Theorem 1.2 without first translating to cosine nodes.
+   supporting interpolation-weight statements. Theorem 1.2 is already proved directly
+   on the root grids, including its exact coefficient and factorial normalizations.
 3. Write the all-length product bound in (40), and the exact actual-degree endpoint
    variant of Lemma 3.10. The proved adjacent estimate and padded endpoint version
-   already suffice for the constructed quadrature positivity.
-4. Complete the rounded-node perturbation estimates for Theorem 1.1, the cubic-threshold
-   results, and Appendices A and B. The harmonic and slice-positivity statements are
-   currently formalized for real scalar Boolean polynomials; the real matrix
-   application has been constructed.
+   suffice for the completed Theorem 1.2.
+4. Complete the cubic-threshold statements and Appendices A and B. The harmonic and
+   slice-positivity statements are currently formalized for real scalar Boolean
+   polynomials, which suffices for the completed real matrix application.
 
-Neither `LowerBoundTarget` nor `QuadraticBoundTarget` currently has a proof. They are
-definitions of the requested propositions, not assumed axioms or established theorems.
+`QuadraticBoundTarget` has the unconditional proof `quadraticBoundTarget`.
+`LowerBoundTarget` remains an unproved target definition.
