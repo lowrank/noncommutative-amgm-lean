@@ -6,7 +6,7 @@ public import NoncommutativeAMGM.Basic
 # Falling factorials and the scalar factorization in Lemma 3.8
 -/
 
-public section
+@[expose] public section
 
 namespace NoncommutativeAMGM
 

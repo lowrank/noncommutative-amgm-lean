@@ -9,6 +9,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Theorem 1.1 / Lemma 2.3: strengthened lower bound | Pending | |
 | Lemma 2.2: rounded Chebyshev nodes are distinct | Pending | |
 | Lemma 3.1: coefficient extraction | Pending | |
+| Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
 | Lemma 3.2: Boolean matrix sum of squares | Pending | |
 | Theorem 3.3: slice functional positivity | Pending | |
 | Lemma 3.4: harmonic decomposition and norm identity | Pending | |
@@ -18,11 +19,12 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Nonnegativity of the scalar weights in (28) | Proved | `FallingFactorial.lean`: `harmonic_weight_nonneg` |
 | Lemma 3.9: polynomial remainder norm | Pending | |
 | Lemma 3.10: coefficient norm estimate | Pending | |
-| Section 3.6: scalar alternating-sum estimate | Pending | |
+| Equation (42), recurrence-ratio bound, alternating-sum closing step | Proved from explicit scalar estimates | `ScalarEstimate.lean`, `Alternating.lean` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
 | Appendix A: counterexample eigenvalue | Pending | |
 | Appendix B: Chebyshev interpolation weights | Pending | |
 | Appendix C, Lemmas C.1–C.3 and harmonic proof | Pending | |
+| Lemma C.1, first identity `(Z-s)f` | Proved | `Boolean.lean`: `slice_total_sub_mul` |
 
 ## Source fidelity notes
 
@@ -36,5 +38,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
   its variables. The required assertion is `(range Δ*)ᗮ = ker Δ`.
 * Section 3.5 contains missing squares and shifted remainder coefficients in intermediate
   displays. The target is the stated inequality in Lemma 3.10 and equation (40).
+* The pairing display in Section 3.6 double-counts the last positive term when `k` is odd.
+  `alternating_sum_ge_neg_first` supplies the intended inequality without that display.
 
 These notes are proof-development observations, not refutations of the main theorem.

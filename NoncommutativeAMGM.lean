@@ -3,3 +3,5 @@ module
 public import NoncommutativeAMGM.Basic
 public import NoncommutativeAMGM.MatrixOrder
 public import NoncommutativeAMGM.FallingFactorial
+public import NoncommutativeAMGM.ScalarEstimate
+public import NoncommutativeAMGM.Boolean

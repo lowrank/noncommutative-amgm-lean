@@ -9,7 +9,7 @@ The order used here is positivity of the difference. The statements of the main
 theorems are predicates, not asserted theorems; their proofs remain to be constructed.
 -/
 
-public section
+@[expose] public section
 
 namespace NoncommutativeAMGM
 
