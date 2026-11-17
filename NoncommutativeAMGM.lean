@@ -93,3 +93,7 @@ public import NoncommutativeAMGM.ChebyshevRounding
 public import NoncommutativeAMGM.RoundedVariation
 public import NoncommutativeAMGM.IntegerSlices
 public import NoncommutativeAMGM.ScalarHomogeneousSpace
+public import NoncommutativeAMGM.InterpolationSliceExtraction
+public import NoncommutativeAMGM.BinomialInterpolation
+public import NoncommutativeAMGM.RoundedLowerBound
+public import NoncommutativeAMGM.SimplexThreshold

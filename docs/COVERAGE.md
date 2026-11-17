@@ -1,17 +1,19 @@
 # Paper coverage
 
 Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean declarations.
+PDF SHA-256: `519f21789fd0e75ed3894daf24006c69086956fe0084f2fe40ae7ced160b13bd`.
 
 | Paper item | Status | Lean location |
 | --- | --- | --- |
 | Equations (1), (5): ordered product sum and normalization | Compiled definitions | `Basic.lean` |
 | Arithmetic-mean case and constant-identity equality | Proved | `Basic.lean`, `MatrixOrder.lean` |
-| Theorem 1.1 / Lemma 2.3: strengthened lower bound | Proved by the endpoint-retaining root-grid argument | `StrengthenedLowerBound.lean`: `withoutReplacementMean_strengthened_lower`, `lowerBoundTarget` |
+| Theorem 1.1 / Lemma 2.3: strengthened lower bound | Proved by both the original rounded-node argument and the endpoint-retaining root-grid argument | `RoundedLowerBound.lean`: `withoutReplacementMean_rounded_lower`; `StrengthenedLowerBound.lean`: `withoutReplacementMean_strengthened_lower`, `lowerBoundTarget` |
 | Stronger `-1+1/m` lower bound at the quadratic threshold | Proved | `StrengthenedLowerBound.lean`: `withoutReplacementMean_endpoint_lower` |
 | Quantitative zero-slice endpoint retained by the positive quadrature | Proved | `RootEndpoint.lean`, `ZeroSlice.lean`, `EndpointChebyshev.lean` |
 | Lemma 2.2: rounded Chebyshev nodes are strictly increasing, with exact endpoints | Proved | `RoundedNodes.lean`: `roundedSliceNode_strictMono`, `roundedSliceNode_zero`, `roundedSliceNode_last` |
 | Quadratic cosine-node separation and nearest-integer error bounds | Proved | `CosineGap.lean`, `RoundedNodes.lean` |
 | General distinct-node interpolation weights, top-coefficient extraction and exact perturbation product | Proved | `InterpolationWeights.lean` |
+| Constructed general interpolation slice moments and exact matrix-mean identity | Proved | `InterpolationSliceExtraction.lean`: `interpolationSlice_moments`, `interpolationSlice_withoutReplacementMean` |
 | Rounded cosine-node interval, endpoints, `1/n` error and injectivity | Proved | `RoundedCosineNodes.lean` |
 | Relative gap loss, exponential gap bound and rounded-weight upper bound (25) | Proved | `NodePerturbation.lean`, `RoundedWeights.lean`: `roundedWeight_abs_le` |
 | Two-sided finite inverse-square gap sum, bounded by `π²/3` | Proved | `InverseSquareGaps.lean` |
@@ -66,6 +68,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Appendix A: scalar recurrence and integral-phase closed form | Proved | `SimplexRecurrence.lean`: `simplexRecurrence_integral_phase` |
 | Appendix A: distinct-word recurrence identification and averaged matrix eigenvalue | Proved | `SimplexTransfer.lean`, `SimplexWords.lean`, `SimplexSymmetry.lean`, `SimplexEigenvalue.lean`: `simplexMean_angle_eigenvector` |
 | Concrete seven-matrix PSD counterexample, exact eigenvalue `-(49/48)³ < -1` | Proved | `SimplexCounterexample.lean`: `sevenSimplexMatrices_lower_bound_fails` |
+| Exact simplex eigenvalue threshold and its necessary quadratic scale | Proved | `SimplexThreshold.lean`: `simplex_eigenvalue_abs_le_iff`, `simplex_threshold_quadratic` |
 | Appendix B: exact barycentric product formula and normalized endpoint/interior weights | Proved | `ChebyshevWeights.lean`: `chebyshev_interpolation_weights` |
 | Ideal interpolation-weight total variation and endpoint saving | Proved | `ChebyshevWeights.lean`: `chebyshevWeight_totalVariation`, `chebyshevWeight_totalVariation_sub_endpoint` |
 | Every integer slice is the actual uniform Boolean-layer average, with unrestricted square positivity | Proved | `IntegerSlices.lean`: `sliceFunctional_integer_average`, `sliceFunctional_integer_square_nonneg` |
@@ -77,29 +80,10 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma C.1, first identity `(Z-s)f` | Proved | `Boolean.lean`: `slice_total_sub_mul` |
 | Lemma C.1, mixed-moment identity | Proved | `MixedMoments.lean`: `sliceFunctional_mixedMonomial` |
 | Lemma C.2, cancellation from harmonic coefficient equations | Proved | `HarmonicCoefficients.lean`: `harmonicCoefficients_upperSum_zero` |
+| Lemma C.3: finite binomial interpolation and alternating top coefficient | Proved | `BinomialInterpolation.lean`: `binomial_interpolation`, `binomial_interpolation_top` |
 | Motivational sampling probability bound | Corrected and certified | `Sampling.lean` |
 
-## Source fidelity notes
-
-* The probability display on page 2 has the exponential inequality reversed. At `n=m=2`,
-  the probability is `1/2 < exp(-1/2)`. `printed_sampling_lower_bound_fails` certifies
-  this; `noRepetitionProbability_le_exp` proves the valid upper-bound direction.
-* In Lemma 3.2 the final displayed definitions of the odd-degree `F₊` and `F₋`
-  appear exchanged relative to their preceding identities. Follow the identities.
-* The first line of the proof of Theorem 3.5 uses `sin²(jπ/m)`; the nodes throughout
-  are `sin²(jπ/(2m))`.
-* Equations (11)–(12) suppress repeated-index word terms after Boolean reduction.
-  A formal coefficient-extraction argument must retain them until extraction.
-* Appendix C's second displayed orthogonality equivalence interchanges the roles of
-  its variables. The required assertion is `(range Δ*)ᗮ = ker Δ`.
-* Section 3.5 contains missing squares and shifted remainder coefficients in intermediate
-  displays. The target is the stated inequality in Lemma 3.10 and equation (40).
-* The pairing display in Section 3.6 double-counts the last positive term when `k` is odd.
-  `alternating_sum_ge_neg_first` supplies the intended inequality without that display.
-
-These notes are proof-development observations, not refutations of the main theorem.
-
-## Remaining proof dependencies
+## Scope audit
 
 Section 2.3's complete rounded-weight estimates, including the endpoint lower bound,
 Chebyshev rounding error, variation excess and final endpoint saving, are proved.
@@ -116,14 +100,15 @@ the unit-circle quadrature. The displayed complex homogeneous inner-product stru
 in Appendix C is covered by `ScalarHomogeneousSpace.lean`; no complex coefficient
 assumption is being supplied to a real theorem.
 
-The final paper-wide audit is still in progress. In particular, the normalized general
-interpolation rule must be identified explicitly with the actual slice and matrix
-coefficient-extraction maps, beyond the completed root-grid specialization.
+The constructed general interpolation rule is identified with the actual Boolean slice
+map and actual matrix coefficient extraction. `withoutReplacementMean_rounded_lower`
+completes the paper's original Section 2 argument, independently of the stronger root-grid
+proof. Every theorem, lemma and corollary in the source has a proof entry above.
 
 Appendix A's concrete PSD family, normalization, distinct-word recurrence and explicit
 eigenvalue formula are now proved, including an exact seven-matrix counterexample.
-The harmonic and slice-positivity statements are currently formalized for real scalar
-Boolean polynomials, which suffices for the completed real matrix application.
+The harmonic and slice-positivity statements are formalized for the paper's real scalar
+Boolean polynomials, as specified at the start of Section 2.
 
 `QuadraticBoundTarget` has the unconditional proof `quadraticBoundTarget`.
 `LowerBoundTarget` has the unconditional proof `lowerBoundTarget`.
