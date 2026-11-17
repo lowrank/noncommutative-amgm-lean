@@ -5,6 +5,7 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Paper item | Status | Lean location |
 | --- | --- | --- |
 | Equations (1), (5): ordered product sum and normalization | Compiled definitions | `Basic.lean` |
+| Arithmetic-mean case and constant-identity equality | Proved | `Basic.lean`, `MatrixOrder.lean` |
 | Theorem 1.1 / Lemma 2.3: strengthened lower bound | Pending | |
 | Lemma 2.2: rounded Chebyshev nodes are distinct | Pending | |
 | Lemma 3.1: coefficient extraction | Pending | |
@@ -13,7 +14,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.4: harmonic decomposition and norm identity | Pending | |
 | Theorem 3.5 / Corollary 3.6: cubic threshold | Pending | |
 | Lemma 3.7: parity quadrature coefficient formula | Pending | |
-| Lemma 3.8: falling factorial factorization | Pending | |
+| Lemma 3.8: falling factorial factorization | Proved | `FallingFactorial.lean`: `slice_weight_factorization` |
+| Nonnegativity of the scalar weights in (28) | Proved | `FallingFactorial.lean`: `harmonic_weight_nonneg` |
 | Lemma 3.9: polynomial remainder norm | Pending | |
 | Lemma 3.10: coefficient norm estimate | Pending | |
 | Section 3.6: scalar alternating-sum estimate | Pending | |

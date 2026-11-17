@@ -1,3 +1,5 @@
 module
 
 public import NoncommutativeAMGM.Basic
+public import NoncommutativeAMGM.MatrixOrder
+public import NoncommutativeAMGM.FallingFactorial
