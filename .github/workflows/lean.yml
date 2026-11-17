@@ -13,6 +13,8 @@ jobs:
       LAKE_ARTIFACT_CACHE: "true"
     steps:
       - uses: actions/checkout@v4
+      - name: Check library import coverage
+        run: python3 scripts/check_imports.py
       - uses: leanprover/lean-action@v1
         with:
           auto-config: "false"
@@ -21,4 +23,4 @@ jobs:
           lint: "false"
           use-mathlib-cache: "true"
       - name: Audit all project declarations
-        run: lake env lean scripts/Audit.lean
+        run: lake env lean -DwarningAsError=true scripts/Audit.lean

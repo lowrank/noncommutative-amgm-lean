@@ -7,3 +7,7 @@ public import NoncommutativeAMGM.ScalarEstimate
 public import NoncommutativeAMGM.Boolean
 public import NoncommutativeAMGM.Extraction
 public import NoncommutativeAMGM.Quadrature
+public import NoncommutativeAMGM.Parseval
+public import NoncommutativeAMGM.Sampling
+public import NoncommutativeAMGM.MixedMoments
+public import NoncommutativeAMGM.SymmetricSums

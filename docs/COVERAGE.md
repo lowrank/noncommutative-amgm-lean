@@ -19,17 +19,23 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Cosine-parity quadrature / root-node identification | Pending | |
 | Lemma 3.8: falling factorial factorization | Proved | `FallingFactorial.lean`: `slice_weight_factorization` |
 | Nonnegativity of the scalar weights in (28) | Proved | `FallingFactorial.lean`: `harmonic_weight_nonneg` |
-| Lemma 3.9: polynomial remainder norm | Pending | |
+| Lemma 3.9: polynomial remainder coefficient norm, root-node form | Proved | `Parseval.lean`: `root_remainder_coefficientNormSq` |
 | Lemma 3.10: coefficient norm estimate | Pending | |
 | Equation (42), recurrence-ratio bound, alternating-sum closing step | Proved from explicit scalar estimates | `ScalarEstimate.lean`, `Alternating.lean` |
+| Equation (41), actual symmetric sums, and scalar closure from norm estimates | Proved | `SymmetricSums.lean`: `symmetricBeta_expansion_nonneg` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
 | Appendix A: counterexample eigenvalue | Pending | |
 | Appendix B: Chebyshev interpolation weights | Pending | |
 | Appendix C, Lemmas C.1–C.3 and harmonic proof | Pending | |
 | Lemma C.1, first identity `(Z-s)f` | Proved | `Boolean.lean`: `slice_total_sub_mul` |
+| Lemma C.1, mixed-moment identity | Proved | `MixedMoments.lean`: `sliceFunctional_mixedMonomial` |
+| Motivational sampling probability bound | Corrected and certified | `Sampling.lean` |
 
 ## Source fidelity notes
 
+* The probability display on page 2 has the exponential inequality reversed. At `n=m=2`,
+  the probability is `1/2 < exp(-1/2)`. `printed_sampling_lower_bound_fails` certifies
+  this; `noRepetitionProbability_le_exp` proves the valid upper-bound direction.
 * In Lemma 3.2 the final displayed definitions of the odd-degree `F₊` and `F₋`
   appear exchanged relative to their preceding identities. Follow the identities.
 * The first line of the proof of Theorem 3.5 uses `sin²(jπ/m)`; the nodes throughout
@@ -44,3 +50,19 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
   `alternating_sum_ge_neg_first` supplies the intended inequality without that display.
 
 These notes are proof-development observations, not refutations of the main theorem.
+
+## Remaining proof dependencies
+
+1. Prove Lemma 3.10 for the actual polynomial coefficient norm; derive equation (40),
+   including the two boundary coefficients removed by each parity. The current scalar
+   closing theorem explicitly assumes these norm estimates.
+2. Construct Appendix C's harmonic decomposition, prove orthogonality and the norm
+   identity (28), and retain the coefficient degree bound in the slice parameter.
+3. Construct the matrix-valued Boolean sums of squares with their degree bounds.
+4. Relate the root quadratures to the cosine parity quadratures. Connect matrix leading
+   coefficient extraction to the ordered product average, then prove Theorem 1.2.
+5. Complete the rounded-node perturbation estimates for Theorem 1.1, the cubic-threshold
+   results, and Appendices A and B.
+
+Neither `LowerBoundTarget` nor `QuadraticBoundTarget` currently has a proof. They are
+definitions of the requested propositions, not assumed axioms or established theorems.

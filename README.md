@@ -12,12 +12,14 @@ See [the coverage ledger](docs/COVERAGE.md) for the exact boundary.
 
 ```sh
 lake exe cache get
+python3 scripts/check_imports.py
 lake build
-lake env lean scripts/Audit.lean
+lake env lean -DwarningAsError=true scripts/Audit.lean
 ```
 
 The toolchain and dependency manifest are pinned. CI compiles the library and checks the
-transitive axioms of every declaration in the project namespace. The allowlist is
+transitive axioms of every declaration originating in a project module, including private
+declarations and declarations outside the principal namespace. The allowlist is
 `propext`, `Classical.choice`, and `Quot.sound`.
 
 ## Mathematical target

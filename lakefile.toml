@@ -2,6 +2,9 @@ name = "noncommutative_amgm"
 version = "0.1.0"
 defaultTargets = ["NoncommutativeAMGM"]
 
+[leanOptions]
+warningAsError = true
+
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"

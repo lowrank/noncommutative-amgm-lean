@@ -3,12 +3,16 @@ import Lean.Util.CollectAxioms
 
 open Lean
 
--- Check every declaration in the project namespace, including definitions and helpers.
+-- Check every declaration originating in a project module, including private helpers.
 run_cmd do
   let env ← getEnv
+  let moduleNames := env.allImportedModuleNames
   let mut count : Nat := 0
   for (name, _) in env.constants.toList do
-    if (`NoncommutativeAMGM).isPrefixOf name then
+    let fromProject := match env.getModuleIdxFor? name with
+      | none => false
+      | some idx => (`NoncommutativeAMGM).isPrefixOf moduleNames[idx.toNat]!
+    if fromProject then
       let axioms ← collectAxioms name
       for ax in axioms do
         unless #[`propext, `Classical.choice, `Quot.sound].contains ax do
