@@ -27,3 +27,5 @@ public import NoncommutativeAMGM.UnitCircleLift
 public import NoncommutativeAMGM.HomogeneousSpace
 public import NoncommutativeAMGM.HarmonicRaising
 public import NoncommutativeAMGM.HarmonicExpansion
+public import NoncommutativeAMGM.BooleanDegree
+public import NoncommutativeAMGM.SliceSubstitution
