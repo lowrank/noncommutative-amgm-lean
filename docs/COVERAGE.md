@@ -9,7 +9,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Theorem 1.1 / Lemma 2.3: strengthened lower bound | Proved by the endpoint-retaining root-grid argument | `StrengthenedLowerBound.lean`: `withoutReplacementMean_strengthened_lower`, `lowerBoundTarget` |
 | Stronger `-1+1/m` lower bound at the quadratic threshold | Proved | `StrengthenedLowerBound.lean`: `withoutReplacementMean_endpoint_lower` |
 | Quantitative zero-slice endpoint retained by the positive quadrature | Proved | `RootEndpoint.lean`, `ZeroSlice.lean`, `EndpointChebyshev.lean` |
-| Lemma 2.2: rounded Chebyshev nodes are distinct | Pending | |
+| Lemma 2.2: rounded Chebyshev nodes are strictly increasing, with exact endpoints | Proved | `RoundedNodes.lean`: `roundedSliceNode_strictMono`, `roundedSliceNode_zero`, `roundedSliceNode_last` |
+| Quadratic cosine-node separation and nearest-integer error bounds | Proved | `CosineGap.lean`, `RoundedNodes.lean` |
 | Lemma 3.1: actual matrix coefficient identification with ordered product sum | Proved | `OrderedWords.lean`, `MatrixCoefficientExtraction.lean`, `ChebyshevCoefficient.lean` |
 | Exact root-to-Boolean-layer and factorial normalizations | Proved | `RootSliceExtraction.lean`, `ProductScaling.lean` |
 | Difference of signed root averages extracts the top real-polynomial coefficient | Proved | `RootCoefficientExtraction.lean`: `rootPolynomialAverage_difference` |
@@ -85,8 +86,9 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Complete the paper's rounded-node perturbation lemmas and normalized interpolation
-   weights as supporting results. Theorem 1.1 itself is already proved by retaining
+1. Complete the paper's normalized interpolation weights and quantitative weight
+   perturbation estimates. Rounded-node separation, endpoints and rounding errors
+   are proved. Theorem 1.1 itself is already proved by retaining
    the zero-slice endpoint in the positive root quadrature, with a stronger saving.
 2. Relate the root-grid rules to the paper's cosine parity quadratures and complete the
    supporting interpolation-weight statements. Theorem 1.2 is already proved directly

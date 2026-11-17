@@ -61,3 +61,5 @@ public import NoncommutativeAMGM.StrengthenedLowerBound
 public import NoncommutativeAMGM.ActualCoefficientNorm
 public import NoncommutativeAMGM.CubicBound
 public import NoncommutativeAMGM.IteratedRemainderEnergy
+public import NoncommutativeAMGM.CosineGap
+public import NoncommutativeAMGM.RoundedNodes
