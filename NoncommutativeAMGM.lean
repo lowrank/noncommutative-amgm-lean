@@ -46,3 +46,5 @@ public import NoncommutativeAMGM.ChebyshevEvenGram
 public import NoncommutativeAMGM.BooleanInputGram
 public import NoncommutativeAMGM.ChebyshevOddGram
 public import NoncommutativeAMGM.ChebyshevQuadrature
+public import NoncommutativeAMGM.ChebyshevRootAverage
+public import NoncommutativeAMGM.RootCoefficientExtraction

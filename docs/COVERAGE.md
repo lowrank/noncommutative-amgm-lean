@@ -8,7 +8,9 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Arithmetic-mean case and constant-identity equality | Proved | `Basic.lean`, `MatrixOrder.lean` |
 | Theorem 1.1 / Lemma 2.3: strengthened lower bound | Pending | |
 | Lemma 2.2: rounded Chebyshev nodes are distinct | Pending | |
-| Lemma 3.1: coefficient extraction | Pending | |
+| Lemma 3.1: matrix coefficient identification with ordered product sum | Pending | |
+| Difference of signed root averages extracts the top real-polynomial coefficient | Proved | `RootCoefficientExtraction.lean`: `rootPolynomialAverage_difference` |
+| Exact Chebyshev moments on the signed root grids | Proved | `ChebyshevRootAverage.lean`: `rootRealAverage_chebyshev` |
 | Lemma 3.1: scalar Boolean extraction from moment constraints | Proved | `Extraction.lean`: `sliceQuadrature_extracts` |
 | Boolean algebra and slice moment rule | Proved / constructed | `Boolean.lean` |
 | Lemma 3.2: scalar even and odd Chebyshev square identities and factor degrees | Proved | `ChebyshevSquares.lean` |
@@ -78,24 +80,21 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Translate the proved scalar weighted root quadrature into the paper's cosine-node
-   weights, including the normalization and falling-factorial prefactors. The polynomial
-   lift, Parseval identification, actual remainder estimates, and scalar positivity
-   now require no assumed norm inequalities. The all-length product bound in (40)
-   remains to be written (the adjacent bound already suffices for Section 3.6).
-   The exact variant of Lemma 3.10 that deletes the polynomial's actual final coefficient,
-   rather than its ambient-degree endpoint, also needs the degree reduction argument;
-   the padded version already suffices for the proved family estimates.
-2. Supply the Chebyshev matrix Gram factors to the proved matrix-positivity extension.
-   The full real harmonic norm formula, coefficient degree bounds, scalar quadrature
-   positivity and its extension to actual matrix Gram sums have been constructed.
-3. Identify the ordered-product matrix extracted by the two root quadratures.
-   Both signed Chebyshev matrix expressions already have PSD quadratures under
-   the quadratic threshold, with constructed Gram factors.
-4. Relate the root quadratures to the cosine parity quadratures. Connect matrix leading
-   coefficient extraction to the ordered product average, then prove Theorem 1.2.
-5. Complete the rounded-node perturbation estimates for Theorem 1.1, the cubic-threshold
-   results, and Appendices A and B.
+1. Identify the ordered-product matrix extracted by the two root quadratures, with the
+   exact Chebyshev leading coefficient and falling-factorial normalization, and close
+   Theorem 1.2. The signed quadratures already extract the top coefficient of actual
+   real polynomials, and both signed Chebyshev matrix expressions have PSD quadratures
+   at the quadratic threshold with constructed Gram factors.
+2. Relate the root-grid rules to the paper's cosine parity quadratures and complete the
+   supporting interpolation-weight statements. A direct root-grid route can be used
+   for Theorem 1.2 without first translating to cosine nodes.
+3. Write the all-length product bound in (40), and the exact actual-degree endpoint
+   variant of Lemma 3.10. The proved adjacent estimate and padded endpoint version
+   already suffice for the constructed quadrature positivity.
+4. Complete the rounded-node perturbation estimates for Theorem 1.1, the cubic-threshold
+   results, and Appendices A and B. The harmonic and slice-positivity statements are
+   currently formalized for real scalar Boolean polynomials; the real matrix
+   application has been constructed.
 
 Neither `LowerBoundTarget` nor `QuadraticBoundTarget` currently has a proof. They are
 definitions of the requested propositions, not assumed axioms or established theorems.
