@@ -87,3 +87,6 @@ public import NoncommutativeAMGM.InverseSquareGaps
 public import NoncommutativeAMGM.RoundedWeights
 public import NoncommutativeAMGM.RoundedEndpoint
 public import NoncommutativeAMGM.RoundedWeightSigns
+public import NoncommutativeAMGM.ArccosMargin
+public import NoncommutativeAMGM.CosineNodeMargin
+public import NoncommutativeAMGM.ChebyshevRounding

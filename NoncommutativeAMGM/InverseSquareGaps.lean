@@ -55,4 +55,32 @@ theorem inverseSquare_gap_sum {m j : ℕ} (hj : j ≤ m) :
   change (∑ l ∈ s.erase j, f l) ≤ _
   linarith
 
+/-- The inverse-square distance to the nearer endpoint sums to at most `π²/3`. -/
+theorem inverseSquare_endpoint_sum (m : ℕ) :
+    (∑ j ∈ Finset.Ioo 0 m, 1 / ((min j (m - j) : ℕ) : ℝ) ^ 2) ≤ Real.pi ^ 2 / 3 := by
+  classical
+  let s := Finset.Ioo 0 m
+  have hleft : (∑ j ∈ s, 1 / (j : ℝ) ^ 2) ≤ Real.pi ^ 2 / 6 :=
+    sum_le_hasSum _ (fun _ _ ↦ by positivity) hasSum_zeta_two
+  have hright : (∑ j ∈ s, 1 / ((m - j : ℕ) : ℝ) ^ 2) ≤ Real.pi ^ 2 / 6 := by
+    have hinj : Set.InjOn (fun j ↦ m - j) s := by
+      intro a ha b hb he
+      have ha' := (Finset.mem_Ioo.mp ha).2
+      have hb' := (Finset.mem_Ioo.mp hb).2
+      dsimp only at he
+      omega
+    rw [← Finset.sum_image (f := fun k : ℕ ↦ 1 / (k : ℝ) ^ 2) hinj]
+    exact sum_le_hasSum _ (fun _ _ ↦ by positivity) hasSum_zeta_two
+  have hpoint (j : ℕ) :
+      1 / ((min j (m - j) : ℕ) : ℝ) ^ 2 ≤
+        1 / (j : ℝ) ^ 2 + 1 / ((m - j : ℕ) : ℝ) ^ 2 := by
+    rcases le_total j (m - j) with h | h
+    · rw [min_eq_left h]
+      exact le_add_of_nonneg_right (by positivity)
+    · rw [min_eq_right h]
+      exact le_add_of_nonneg_left (by positivity)
+  have h := Finset.sum_le_sum (fun j (_ : j ∈ s) ↦ hpoint j)
+  rw [Finset.sum_add_distrib] at h
+  exact h.trans (by linarith)
+
 end NoncommutativeAMGM
