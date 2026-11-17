@@ -21,6 +21,8 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Nonnegativity of the scalar weights in (28) | Proved | `FallingFactorial.lean`: `harmonic_weight_nonneg` |
 | Lemma 3.9: polynomial remainder coefficient norm, root-node form | Proved | `Parseval.lean`: `root_remainder_coefficientNormSq` |
 | Lemma 3.10: coefficient norm estimate | Pending | |
+| Equation (38), invariant subspace, self-adjointness and weighted energy | Proved | `CoefficientOperator.lean`, `CoefficientEnergy.lean` |
+| Lemma 3.10 with a fixed ambient degree and padded endpoint deletion | Proved | `CoefficientTail.lean`: `coefficient_norm_step_padded` |
 | Equation (42), recurrence-ratio bound, alternating-sum closing step | Proved from explicit scalar estimates | `ScalarEstimate.lean`, `Alternating.lean` |
 | Equation (41), actual symmetric sums, and scalar closure from norm estimates | Proved | `SymmetricSums.lean`: `symmetricBeta_expansion_nonneg` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
@@ -53,9 +55,12 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Prove Lemma 3.10 for the actual polynomial coefficient norm; derive equation (40),
-   including the two boundary coefficients removed by each parity. The current scalar
-   closing theorem explicitly assumes these norm estimates.
+1. Connect `coefficient_norm_step_padded` to the even/odd decomposition of `Pⱼ`,
+   including its degree bounds and the two boundary coefficients removed by each parity.
+   Derive equation (40). The current scalar closing theorem explicitly assumes these
+   norm estimates. The exact variant of Lemma 3.10 that deletes the polynomial's actual
+   final coefficient, rather than its ambient-degree endpoint, also needs the degree
+   reduction argument; the padded version avoids this issue for the main proof.
 2. Construct Appendix C's harmonic decomposition, prove orthogonality and the norm
    identity (28), and retain the coefficient degree bound in the slice parameter.
 3. Construct the matrix-valued Boolean sums of squares with their degree bounds.

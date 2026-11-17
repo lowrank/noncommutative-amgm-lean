@@ -11,3 +11,8 @@ public import NoncommutativeAMGM.Parseval
 public import NoncommutativeAMGM.Sampling
 public import NoncommutativeAMGM.MixedMoments
 public import NoncommutativeAMGM.SymmetricSums
+public import NoncommutativeAMGM.CoefficientOperator
+public import NoncommutativeAMGM.CoefficientEnergy
+public import NoncommutativeAMGM.SpectralLower
+public import NoncommutativeAMGM.CoefficientSpace
+public import NoncommutativeAMGM.CoefficientTail
