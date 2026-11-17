@@ -16,19 +16,65 @@ The repository contains only completed declarations: no proof placeholders or cu
 An absence of placeholders does not establish coverage of the paper.
 See [the coverage ledger](docs/COVERAGE.md) for the exact boundary.
 
+## Palomar package
+
+The repository root is the Lean project. The independently stated
+[Challenge](Challenge.lean) imports only Mathlib and contains the full concrete
+ordered-product average. [Solution](Solution.lean) proves the same five statements
+from the complete proof library. [comparator.json](comparator.json) selects:
+
+| Declaration in `AMGMSubmission` | Result |
+| --- | --- |
+| `quadratic_bounds` | Theorem 1.2, both bounds at `n ≥ 2⌈m/2⌉²` |
+| `strengthened_lower` | Theorem 1.1, `−1+1/(2m)` at `n ≥ 4m²` |
+| `endpoint_lower` | Stronger `−1+1/m` at the quadratic threshold |
+| `sine_bounds` | Theorem 3.5, original sine-node criterion |
+| `cubic_bounds` | Corollary 3.6, `m³ ≤ 2n` |
+
+Challenge theorem bodies use five private specification axioms. These are deliberately
+unproved statements of record, and are never imported by Solution. The concrete average
+has no definition hole. All Solution and library proofs use only `propext`,
+`Classical.choice`, and `Quot.sound`, with no `sorry` or custom proof assumptions.
+The remaining supporting results and appendices are built and axiom-audited; they
+are not separate registry claims in this Comparator configuration.
+
+[formalization.yaml](formalization.yaml) records provenance, classification, AI
+assistance, source alignment and review scope. To prepare a submission at
+<https://submit.palomar-registry.org/>, use:
+
+* Repository: `lowrank/noncommutative-amgm-lean`
+* Commit: the full 40-character SHA from `git rev-parse HEAD`
+* Project path: repository root (leave the project-path field empty)
+* Comparator path: `comparator.json`
+* Metadata path: `formalization.yaml` (the default)
+
+Packaging and CI do not submit or register the project with Palomar.
+
 ## Build and audit
 
 ```sh
+python3 -m venv .lake/metadata-venv
+.lake/metadata-venv/bin/pip install -r scripts/requirements-palomar.txt
+.lake/metadata-venv/bin/python scripts/check_palomar.py
 lake exe cache get
 python3 scripts/check_imports.py
 lake build
 lake env lean -DwarningAsError=true scripts/Audit.lean
+scripts/verify_comparator.sh
 ```
 
-The toolchain and dependency manifest are pinned. CI compiles the library and checks the
-transitive axioms of every declaration originating in a project module, including private
-declarations and declarations outside the principal namespace. The allowlist is
-`propext`, `Classical.choice`, and `Quot.sound`.
+The pinned Lean 4.35.0 toolchain supplies Comparator and its kernels. The verification
+script uses the default sandbox and replays selected proofs with Lean, NanoDa and
+con-ron; con-ron runs with one worker to bound memory. On hosts whose user-namespace
+policy prevents bubblewrap from starting, `scripts/verify_comparator.sh
+--inadvisably-no-sandbox` is an explicitly untrusted local diagnostic, not a sandboxed
+verification result. CI configures bubblewrap and uses the default sandbox.
+
+The toolchain and dependency manifest are pinned. CI checks Palomar metadata, all Lean
+module headers and size limits, complete library import coverage, the build, the
+transitive axioms of every library/Solution declaration, and Comparator. Ordinary
+CI builds retain writable Lake caching; isolated comparison disables artifact-cache
+writes so it also works with frozen dependency trees.
 
 ## Mathematical target
 

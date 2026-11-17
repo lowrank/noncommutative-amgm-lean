@@ -8,6 +8,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     env:
       LEAN_NUM_THREADS: 2
       LAKE_ARTIFACT_CACHE: "true"
@@ -15,6 +16,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check library import coverage
         run: python3 scripts/check_imports.py
+      - name: Check Palomar metadata and source format
+        run: |
+          python3 -m venv "$RUNNER_TEMP/palomar-validation"
+          "$RUNNER_TEMP/palomar-validation/bin/pip" install -r scripts/requirements-palomar.txt
+          "$RUNNER_TEMP/palomar-validation/bin/python" scripts/check_palomar.py
       - uses: leanprover/lean-action@v1
         with:
           auto-config: "false"
@@ -24,3 +30,10 @@ jobs:
           use-mathlib-cache: "true"
       - name: Audit all project declarations
         run: lake env lean -DwarningAsError=true scripts/Audit.lean
+      - name: Enable Comparator sandbox on the disposable runner
+        run: |
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y -qq bubblewrap >/dev/null
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - name: Compare statements and replay proofs in Lean, NanoDa and con-ron
+        run: scripts/verify_comparator.sh

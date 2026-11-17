@@ -1,0 +1,153 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+project:
+  name: "When the noncommutative AM-GM inequality holds"
+  description: >-
+    For arbitrary real positive semidefinite matrices A_i whose sum is at most n I,
+    the uniform average W of ordered products of m distinct matrices satisfies
+    -I <= W <= I when n >= 2 ceil(m/2)^2. When n >= 4m^2 its lower bound improves
+    to -(1-1/(2m)) I. The formalization also proves the stronger lower bound
+    -(1-1/m) I at the quadratic threshold, the original sine-node criterion,
+    and the cubic-size corollary. The statements retain the original arbitrary
+    PSD and sum-at-most-nI hypotheses. Harmonic decomposition, positive root
+    quadratures, matrix Gram factors, normalized coefficient extraction, and the
+    original rounded-node lower-bound proof are constructed in the repository.
+  authors: ["Yimin Zhong"]
+  responsible_maintainers: ["Yimin Zhong"]
+  license: "Apache-2.0"
+classification:
+  arxiv: ["math.PR", "math.OC"]
+  msc2020: ["15A45", "47A63", "41A55"]
+sources:
+  - title: "When the noncommutative AM-GM inequality holds"
+    authors: ["Yimin Zhong"]
+    id: "arXiv:2610.04874v1"
+    location: "https://arxiv.org/abs/2610.04874v1"
+    type: "arxiv preprint"
+    relationship: "formalizes"
+    note: >-
+      Theorems 1.1, 1.2 and 3.5, Corollary 3.6, and their supporting results.
+      The stronger endpoint-retaining lower bound is an additional result
+      obtained by retaining the zero-slice endpoint in the root quadrature.
+related_formalizations: []
+status:
+  scope: >-
+    This Comparator configuration selects five fully proved real-matrix bounds:
+    quadratic_bounds, strengthened_lower, endpoint_lower, sine_bounds and
+    cubic_bounds in AMGMSubmission. Dimension, number of matrices, product
+    length, noncommutative product order and normalization are explicit. The
+    Challenge imports only Mathlib and gives the complete concrete averaging
+    definition. Its five theorem specifications are backed only in Challenge by private axioms;
+    Solution does not import them and supplies genuine proofs of the same
+    statements. The proof library also includes the appendix constructions and
+    an exact seven-matrix counterexample, which are built and axiom-audited but
+    are not separately selected as registry claims by this configuration.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "AMGMSubmission.quadratic_bounds"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+    - declaration: "AMGMSubmission.strengthened_lower"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+    - declaration: "AMGMSubmission.endpoint_lower"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+    - declaration: "AMGMSubmission.sine_bounds"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+    - declaration: "AMGMSubmission.cubic_bounds"
+      file: "Solution.lean"
+      comparator_config: "comparator.json"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+automation:
+  methods:
+    - method: "agent"
+      models: ["GPT-6 (Codex)"]
+      framework: "OpenAI Codex"
+      tool_setup: >-
+        AI-assisted source analysis, Lean proof construction, Mathlib theorem
+        search, compiler feedback, whole-library axiom audits, and Comparator
+        packaging. The user supplied the mathematical source and directed the
+        work. Automated mathematical tactics are used throughout the proofs.
+      cost:
+        wall_time: "not tracked across the full development"
+        spend_usd: "not tracked"
+        hardware: "local Linux workstation and GitHub-hosted CI"
+      prompting_notes: >-
+        Formalize arXiv:2610.04874 end to end in Lean 4.35 without sorry,
+        commit milestones, and prepare the existing proof for Palomar.
+  spend_usd: "not tracked"
+  notes: >-
+    The comparison statements and their concrete definitions were written
+    independently of the proof modules and are matched by same-named proved
+    declarations in Solution. No independent human peer review is claimed.
+fidelity:
+  divergences: >-
+    The main matrix statements preserve the source assumptions and constants.
+    Theorem 1.1 has both the original rounded-node proof and a stronger
+    endpoint-retaining root-grid proof. Known typographical and algebraic errors
+    in intermediate source displays are repaired. Scalar polynomial estimates
+    use the real-valued class specified in Section 2; the homogeneous incidence
+    adjoint and splitting also hold over arbitrary RCLike fields, including C.
+    No additional commutativity, mean-identity, norm-estimate or unconstructed
+    analytic-interface assumption appears in the compared statements.
+review:
+  status: "agent-reviewed"
+  notes: >-
+    The source-to-declaration coverage audit, Lean build, and transitive-axiom
+    audit of all 1383 library and Solution declarations have passed. Local
+    diagnostic Comparator matching and replay through con-ron (60703 exported
+    declarations), NanoDa and Lean have passed. The challenge is deliberately independent of project
+    definitions and imports only Mathlib. Comparator checks these five selected
+    declarations, rather than every statement in the coverage ledger. Local
+    comparison on hosts without working user namespaces uses the explicitly
+    labelled diagnostic mode; CI uses the default sandbox. Preparing this
+    repository does not submit or register it with Palomar.
+alignment:
+  namespace: "AMGMSubmission"
+  statements:
+    - source: "Theorem 1.2"
+      lean: "AMGMSubmission.quadratic_bounds"
+      module: "Solution"
+      status: "proved"
+      note: "Both Loewner bounds with n >= 2 ceil(m/2)^2."
+    - source: "Theorem 1.1 / Lemma 2.3"
+      lean: "AMGMSubmission.strengthened_lower"
+      module: "Solution"
+      status: "proved"
+      note: "The original rounded-node proof gives the stated 1/(2m) saving."
+    - source: "Additional endpoint-retaining consequence of the root-grid argument"
+      lean: "AMGMSubmission.endpoint_lower"
+      module: "Solution"
+      status: "proved"
+      note: "Stronger 1/m saving at the quadratic threshold."
+    - source: "Theorem 3.5"
+      lean: "AMGMSubmission.sine_bounds"
+      module: "Solution"
+      status: "proved"
+      note: "Original sine-node criterion without an additional quadratic threshold."
+    - source: "Corollary 3.6"
+      lean: "AMGMSubmission.cubic_bounds"
+      module: "Solution"
+      status: "proved"
+      note: "The exact natural-number form of n >= m^3/2."
+acknowledgements: >-
+  Built with Lean 4.35.0 and Mathlib. The mathematical source is Yimin Zhong's
+  arXiv:2610.04874v1. AI assistance is disclosed under automation.

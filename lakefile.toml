@@ -1,6 +1,6 @@
 name = "noncommutative_amgm"
 version = "0.1.0"
-defaultTargets = ["NoncommutativeAMGM"]
+defaultTargets = ["NoncommutativeAMGM", "Palomar"]
 
 [leanOptions]
 warningAsError = true
@@ -12,3 +12,7 @@ rev = "v4.35.0"
 
 [[lean_lib]]
 name = "NoncommutativeAMGM"
+
+[[lean_lib]]
+name = "Palomar"
+roots = ["Challenge", "Solution"]

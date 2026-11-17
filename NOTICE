@@ -1,0 +1,6 @@
+When the noncommutative AM-GM inequality holds — Lean formalization
+Copyright 2026 Yimin Zhong
+
+The formalization and Palomar packaging in this repository are licensed under
+Apache-2.0. The cited mathematical paper and dependencies retain their own
+licences. Lean and Mathlib are acknowledged in formalization.yaml and README.md.

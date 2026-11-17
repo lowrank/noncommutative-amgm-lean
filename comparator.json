@@ -1,0 +1,18 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "AMGMSubmission.quadratic_bounds",
+    "AMGMSubmission.strengthened_lower",
+    "AMGMSubmission.endpoint_lower",
+    "AMGMSubmission.sine_bounds",
+    "AMGMSubmission.cubic_bounds"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "enable_nanoda": true
+}
