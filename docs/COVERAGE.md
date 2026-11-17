@@ -30,6 +30,10 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Section 3.6 positivity for the actual remainder energies, without norm hypotheses | Proved | `RemainderEnergy.lean`: `actual_remainder_expansion_nonneg` |
 | Equation (42), recurrence-ratio bound, alternating-sum closing step | Proved from explicit scalar estimates | `ScalarEstimate.lean`, `Alternating.lean` |
 | Equation (41), actual symmetric sums, and scalar closure from norm estimates | Proved | `SymmetricSums.lean`: `symmetricBeta_expansion_nonneg` |
+| Actual remainder energies identified with the root-node averages | Proved | `RealRootQuadrature.lean`: `remainderEnergy_eq_rootRealAverage` |
+| Weighted root-node positivity under the quadratic threshold | Proved | `RootPositivity.lean`: `root_weighted_square_nonneg` |
+| Real polynomial lift to the unit circle, with degree and evaluation identities | Proved | `UnitCircleLift.lean` |
+| Scalar weighted real-polynomial quadrature underlying (29), in root parametrization | Proved | `UnitCircleLift.lean`: `real_polynomial_quadrature_nonneg` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
 | Appendix A: counterexample eigenvalue | Pending | |
 | Appendix B: Chebyshev interpolation weights | Pending | |
@@ -61,9 +65,10 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Identify the actual remainder energies with the weighted root-node quadratures.
-   The even/odd estimates and the scalar closing step now use the actual polynomial
-   family, with no assumed norm inequalities. The all-length product bound in (40)
+1. Translate the proved scalar weighted root quadrature into the paper's cosine-node
+   weights, including the normalization and falling-factorial prefactors. The polynomial
+   lift, Parseval identification, actual remainder estimates, and scalar positivity
+   now require no assumed norm inequalities. The all-length product bound in (40)
    remains to be written (the adjacent bound already suffices for Section 3.6).
    The exact variant of Lemma 3.10 that deletes the polynomial's actual final coefficient,
    rather than its ambient-degree endpoint, also needs the degree reduction argument;

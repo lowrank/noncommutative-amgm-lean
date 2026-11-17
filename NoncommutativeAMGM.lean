@@ -21,3 +21,6 @@ public import NoncommutativeAMGM.ParityCoefficients
 public import NoncommutativeAMGM.DifferenceFamily
 public import NoncommutativeAMGM.RemainderSafety
 public import NoncommutativeAMGM.RemainderEnergy
+public import NoncommutativeAMGM.RealRootQuadrature
+public import NoncommutativeAMGM.RootPositivity
+public import NoncommutativeAMGM.UnitCircleLift
