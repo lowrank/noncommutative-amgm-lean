@@ -23,6 +23,11 @@ Source: arXiv:2610.04874v1, 25 pages. Status entries refer to compiled Lean decl
 | Lemma 3.10: coefficient norm estimate | Pending | |
 | Equation (38), invariant subspace, self-adjointness and weighted energy | Proved | `CoefficientOperator.lean`, `CoefficientEnergy.lean` |
 | Lemma 3.10 with a fixed ambient degree and padded endpoint deletion | Proved | `CoefficientTail.lean`: `coefficient_norm_step_padded` |
+| Even/odd recurrences, degree bounds, full norm split and endpoint deletion | Proved | `ParityCoefficients.lean` |
+| Equation (39), actual `Pⱼ = R(X²-1)ʲ`, before normalization | Proved | `DifferenceFamily.lean`: `differenceFamily_norm_step` |
+| Endpoint protection under the final polynomial remainder | Proved | `RemainderSafety.lean` |
+| Adjacent estimates in (40), for the actual normalized remainder energies | Proved | `RemainderEnergy.lean`: `remainderEnergy_step` |
+| Section 3.6 positivity for the actual remainder energies, without norm hypotheses | Proved | `RemainderEnergy.lean`: `actual_remainder_expansion_nonneg` |
 | Equation (42), recurrence-ratio bound, alternating-sum closing step | Proved from explicit scalar estimates | `ScalarEstimate.lean`, `Alternating.lean` |
 | Equation (41), actual symmetric sums, and scalar closure from norm estimates | Proved | `SymmetricSums.lean`: `symmetricBeta_expansion_nonneg` |
 | Theorem 1.2: quadratic threshold, arbitrary PSD matrices | Pending | |
@@ -56,12 +61,13 @@ These notes are proof-development observations, not refutations of the main theo
 
 ## Remaining proof dependencies
 
-1. Connect `coefficient_norm_step_padded` to the even/odd decomposition of `Pⱼ`,
-   including its degree bounds and the two boundary coefficients removed by each parity.
-   Derive equation (40). The current scalar closing theorem explicitly assumes these
-   norm estimates. The exact variant of Lemma 3.10 that deletes the polynomial's actual
-   final coefficient, rather than its ambient-degree endpoint, also needs the degree
-   reduction argument; the padded version avoids this issue for the main proof.
+1. Identify the actual remainder energies with the weighted root-node quadratures.
+   The even/odd estimates and the scalar closing step now use the actual polynomial
+   family, with no assumed norm inequalities. The all-length product bound in (40)
+   remains to be written (the adjacent bound already suffices for Section 3.6).
+   The exact variant of Lemma 3.10 that deletes the polynomial's actual final coefficient,
+   rather than its ambient-degree endpoint, also needs the degree reduction argument;
+   the padded version already suffices for the proved family estimates.
 2. Construct Appendix C's harmonic decomposition, prove orthogonality and the norm
    identity (28), and retain the coefficient degree bound in the slice parameter.
 3. Construct the matrix-valued Boolean sums of squares with their degree bounds.
